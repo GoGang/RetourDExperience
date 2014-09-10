@@ -31,3 +31,6 @@ Cette conférence sera présentée par l'équipe ayant développé le projet, à
 - Jacques Antoine Massé
 
 Elle pourrait être couplée à un atelier d'1h50 sur le langage de programmation Go.
+
+---
+
