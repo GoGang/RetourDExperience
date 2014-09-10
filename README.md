@@ -34,87 +34,61 @@ Elle pourrait être couplée à un atelier d'1h50 sur le langage de programmatio
 
 ---
 
-# Golang VS une grande entreprise
-## Retour d'expérience sur le développement en Golang
+Plan
+====
+- Qui sommes nous ? (1 min)
+  - Orange
+  - Equipe XMS (3 min)
+    - Plate-Forme d'envoi XMS
+    - On est XXX
+    - On XXX applis
+    - On gère Watt millions de SMS par mois
+
+- Le contexte du projet et ses contraintes (3 min)
+  - Présentation de l'environnement.
+  - Technos mises en oeuvre dans le projet.
+  - Les difficultés du projet.
+  - Conclusion : nécessité de réécrire l'appli.
+
+- Etude Technique
+  - Java
+  - Go
+  - Réalisation de POCS
+    - Critères de choix
+    - Protocole de test
+    - Graphes de benches
+  - Conclusion de l'étude technique
+    - Choix du Go
+
+- Rapide présentation du Go.
+  - Concurrence
+  - Outils de développement (commande go)
+  - Environnements de développement
+
+- Ecueils et bonnes surprises lors du développement.
+  - Difficultés
+    - Pattern 'APPEL+CheckERROR' 
+    - Logging
+    - Certificats
+    - Réapprentissage de pratiques de dév
+    - Gestion des erreurs perfectible (besoin de discipline, très reberbatif, et pas de typage des erreurs)
+    - Vendorisation
+  - Bonnes surprises
+    - Apprentissage de Go 
+    - Qualité des API
+    - Rapidité de développement
+    - Déploiement (binaire sans dépendances)
+    - Monitoring
+    - Librairie standard (dont serveurs http)
+    - API de tests
+    - go test -race
+    - Pas de problèmes rencontrés en PROD, appli stable
+    - Support, communication et communauté
+    - Open source donc gratuit
+
+- Retour sur les performances et la maintenabilité.
+  - Résultats des benches go/legacy
+  - Outils de monitoring mis en production
 
 ---
-
-# Pourquoi s'intéresser à Go
-## Présentation générale du langage
-
----
-
-# Pourquoi s'intéresser à Go
-## Quelques success stories
-
----
-
-# Pourquoi s'intéresser à Go
-## Le support, la documentation et la communauté
-
----
-
-# Pourquoi s'intéresser à Go
-## Le début du combat
-
-Existence d'un module de routage trop complexe
-Nb de jours de dev, maintenance exhorbitante depuis 2005, 48 designs patterns, etc
-La réticence de l'entreprise face à une techno inconnue
-
----
-
-# Pourquoi s'intéresser à Go
-## Le début du combat
-
-Première étape d'analyse : Dvpt des POCS
-Présentation breve de la pf XMS et du role du sgs-enabler
-Présentation des résultats des POCS en terme de perf, de temps de dev, de montée en compétences, etc.
-
----
-
-# Pourquoi s'intéresser à Go
-## Le début du combat
-
-Première étape d'analyse : Dvpt des POCS
-Présentation breve de la pf XMS et du role du sgs-enabler
-Présentation des résultats des POCS en terme de perf, de temps de dev, de montée en compétences, etc.
-
----
-
-# Le début du développement
-## L'installation et l'environnement de développement
-
----
-
-# Le début du développement
-## Ce qui change de Java et des autres langages
-
----
-
-# Le développement en Go
-## Présentation du langage
-La gestion de la concurrence, la gestion des erreurs, le monitoring d'application, etc
-
----
-
-# Le développement en Go
-## Les difficultés et les moyens mis en place
-Toutes les merdes rencontrées pendant le DEV
-
----
-
-# Le développement en Go
-## La mise en prod
-Résultat des benchs comparé au legacy
-La surveillance sur les machines de prod
-
----
-
-# Le développement en Go
-## Les principales API
-
----
-
-# Le développement en Go
-## Les loggers en Go
 
