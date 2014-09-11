@@ -94,9 +94,32 @@ Plan
 
 Qui sommes nous ?
 
+Michel Casabianca, Benjamin Chenebault et Jacques Antoine Massé.
+
 ---
 
 Equipe XMS
 
+Plate-forme SMS/MMS entre des éditeurs de service et des usagers mobile
+6 dev, 3 devops
+~15 applications Java, C, Python
+Quelques centaines de clients
+900 millions de sms/an
+
 ---
 
+Le projet SGS enabler
+
+Principal frontal d'accès à la plate-forme écrit en Java
+Rôle de loadbalancer, authentifications des clients, serveur HTTP & TCP
+
+---
+
+Soucis de maintenance
+
+Cout de maintenance exorbitants, bugs difficiles à identifier et corriger
+Appli obsolète => Nécessité de réécriture
+Environ 10 k lignes de code Java.
+Beaucoup de problèmes de concurrence et de synchronisation du code.
+
+---
