@@ -92,3 +92,11 @@ Plan
 
 ---
 
+Qui sommes nous ?
+
+---
+
+Equipe XMS
+
+---
+
