@@ -36,20 +36,14 @@ Elle pourrait être couplée à un atelier d'1h50 sur le langage de programmatio
 
 Plan
 ====
-- Qui sommes nous ? (1 min)
+- Qui sommes nous ?
   - Orange
-  - Equipe XMS (3 min)
-    - Plate-Forme d'envoi XMS
-    - On est XXX
-    - On XXX applis
-    - On gère Watt millions de SMS par mois
-
+  - Equipe XMS
 - Le contexte du projet et ses contraintes (3 min)
-  - Présentation de l'environnement.
-  - Technos mises en oeuvre dans le projet.
-  - Les difficultés du projet.
-  - Conclusion : nécessité de réécrire l'appli.
-
+  - Présentation de l'environnement
+  - Technos mises en oeuvre dans le projet
+  - Les difficultés du projet
+  - Conclusion : nécessité de réécrire l'appli
 - Etude Technique
   - Java
   - Go
@@ -59,12 +53,10 @@ Plan
     - Graphes de benches
   - Conclusion de l'étude technique
     - Choix du Go
-
 - Rapide présentation du Go.
   - Concurrence
   - Outils de développement (commande go)
   - Environnements de développement
-
 - Ecueils et bonnes surprises lors du développement.
   - Difficultés
     - Pattern 'APPEL+CheckERROR' 
@@ -85,7 +77,6 @@ Plan
     - Pas de problèmes rencontrés en PROD, appli stable
     - Support, communication et communauté
     - Open source donc gratuit
-
 - Retour sur les performances et la maintenabilité.
   - Résultats des benches go/legacy
   - Outils de monitoring mis en production
@@ -119,7 +110,50 @@ Soucis de maintenance
 
 Cout de maintenance exorbitants, bugs difficiles à identifier et corriger
 Appli obsolète => Nécessité de réécriture
-Environ 10 k lignes de code Java.
-Beaucoup de problèmes de concurrence et de synchronisation du code.
+Environ 10 k lignes de code Java
+Beaucoup de problèmes de concurrence et de synchronisation du code
+Pas assez de documentation
 
 ---
+
+Conclusion : Nécessité de réécrire l'application
+
+Malgré des mois passés à débugger l'application, elle n'a jamais été suffisament stable pour pouvoir migrer tous les clients dessus
+
+---
+
+Etude technique
+
+Réalisation d'un sous ensemble des fonctionnalités du projet dans le but de décider du choix de la techno.
+Périmètre réduit : Acceptation d'une requête TCP, utilisation de lib XML, authentification par IP, requêtage HTTP, ouverture et envoie de données en TCP. => FAIRE SCHEMA SIMPLE
+
+---
+
+Critères de choix de la technologie
+
+Performances en terme de nm de requête par seconde et temps moyen de traitement d'une requête
+Simplicité de développement et de lecture de code
+Consommation ressources CPU/mémoire
+
+---
+
+Les alternatives
+
+Développement en Java avec utilisation d'IO synchrones/multithread (VS NIO dans implémentation legacy)
+Développement en Go avec l'utilisation des channels et des go routines
+
+Réalisation des 2 POCs en parallèle sur 10 jours de développement.
+
+---
+
+Les résultats des POCS
+
+Nombre de lignes de code comparable
+Complexité comparable avec un léger avantage à Go
+Protocole de test : Test de montée en charge et de vieillissement de l'application
+Mesure du nombre de
+
+
+
+
+
