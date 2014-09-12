@@ -125,13 +125,13 @@ Malgré des mois passés à débugger l'application, elle n'a jamais été suffi
 Etude technique
 
 Réalisation d'un sous ensemble des fonctionnalités du projet dans le but de décider du choix de la techno.
-Périmètre réduit : Acceptation d'une requête TCP, utilisation de lib XML, authentification par IP, requêtage HTTP, ouverture et envoie de données en TCP. => FAIRE SCHEMA SIMPLE
+Périmètre réduit : Acceptation d'une requête HTTP, utilisation de lib XML, authentification par IP, requêtage HTTP, ouverture et envoie de données en TCP. => FAIRE SCHEMA SIMPLE
 
 ---
 
 Critères de choix de la technologie
 
-Performances en terme de nm de requête par seconde et temps moyen de traitement d'une requête
+Performances
 Simplicité de développement et de lecture de code
 Consommation ressources CPU/mémoire
 
@@ -151,9 +151,30 @@ Les résultats des POCS
 Nombre de lignes de code comparable
 Complexité comparable avec un léger avantage à Go
 Protocole de test : Test de montée en charge et de vieillissement de l'application
-Mesure du nombre de
+Mesure du nombre du nb de requêtes par seconde et du temps moyen de traitement d'une requête
 
+---
 
+Les résultats des POCS
 
+LES GRAPHES NB REQUETE/SEC ICI
 
+---
 
+Les résultats des POCS
+
+LES GRAPHES temps moyen par requete ICI
+
+---
+
+Les résultats des POCS
+
+LES GRAPHES RAM ET CPU ICI
+
+---
+
+Conclusion de l'étude technique
+
+Architecture du programme en Go simplifiée
+Les performances en Go sont meilleures d'environ 10%
+Consommation RAM/CPU en faveur de Go
