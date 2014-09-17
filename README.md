@@ -178,3 +178,60 @@ Conclusion de l'étude technique
 Architecture du programme en Go simplifiée
 Les performances en Go sont meilleures d'environ 10%
 Consommation RAM/CPU en faveur de Go
+
+---
+
+Présentation de Go
+
+Go est un langage :
+- Open source
+- Compilé
+- Typé statiquement
+- Orienté concurrence
+
+---
+
+Les goroutines
+
+```go
+package main
+
+func producer(c chan string) {
+	c <- "hello"
+}
+
+func consumer(c chan string) {
+	println(<-c)
+}
+
+func main() {
+	c := make(chan string)
+	go consumer(c)
+	producer(c)
+}
+```
+
+- Primitives du langage
+- Très légères en terme de ressources (4ko)
+- Multiplexé sur un thread de l'OS
+
+<http://play.golang.org/p/y6W8I8lJYA>
+
+---
+
+Les channels
+
+```go
+package main
+
+func main() {
+	c := make(chan int, 1)
+	c <- 42
+	val := <-c
+	println(val)
+}
+```
+
+<http://play.golang.org/p/Kq0Ih_NwIH>
+
+---
