@@ -188,6 +188,7 @@ Go est un langage :
 - Compilé
 - Typé statiquement
 - Orienté concurrence
+- Garbage collecté
 
 ---
 
@@ -234,4 +235,47 @@ func main() {
 
 <http://play.golang.org/p/Kq0Ih_NwIH>
 
+- File d'attente intégrée au langage
+- FIFO
+- Très largement utilisée pour gérer la concurrence et les attentes de thread
+
 ---
+
+La commande Go
+
+- go build
+- go run
+- go test
+- go fmt
+
+---
+
+Les exécutables en Go
+
+-Binaire compilé statiquement donc standalone
+-"Hello world" ~ 1Mo (embarque toutes les bibliothèques utilisées)
+-Embarque le garbage collector
+-Cross compilation possible
+-Pf supportées : FreeBSD et Linux 32/64 sur x86 et ARM, Windows, MacOS,...
+
+---
+
+L'environnement de développement
+
+- Existence de modes pour emacs et vi
+- Existence de plugins Eclise et IntelliJ
+- Liteide écrit en Go
+
+---
+
+Ecueils et bonnes surprises
+
+---
+
+Ecueil n°1 : la gestion des erreurs peut sembler réberbatifs
+
+---
+
+Ecueil n°2 : Le 
+
+
