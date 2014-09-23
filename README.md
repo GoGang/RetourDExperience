@@ -76,7 +76,7 @@ Plan
     - go test -race
     - Pas de problèmes rencontrés en PROD, appli stable
     - Support, communication et communauté
-    - Open source donc gratuit
+    - Open source et gratuit
 - Retour sur les performances et la maintenabilité.
   - Résultats des benches go/legacy
   - Outils de monitoring mis en production
@@ -276,6 +276,110 @@ Ecueil n°1 : la gestion des erreurs peut sembler réberbatifs
 
 ---
 
-Ecueil n°2 : Le 
+Ecueil n°2 : Logging
+
+---
+
+Ecueil n°3 : Certificats
+
+---
+
+Ecueil n°4 : Vendorisation
+
+---
+
+Bonne surprise N°1 : Apprentissage de Go
+
+La montée en compétence est rapide, de l'ordre de la semaine. Le langage est simple:
+- La syntaxe est simple
+- Goroutine et channels
+- Features avancées (champs annonymes)
+
+---
+
+Bonne surprise N°2 : Qualité des API
+
+```go
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"log"
+	"net/http"
+)
+
+func main() {
+	res, err := http.Get("http://www.google.com/robots.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	robots, err := ioutil.ReadAll(res.Body)
+	res.Body.Close()
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("%s", robots)
+}
+```
+
+http://play.golang.org/p/VPwJf7DuUo
+
+---
+
+Bonne surprise N°3 : Rapidité de développement
+
+Comparable au Python. Cette vistesse est due à :
+- La simplicité du langage
+- La qualité des APIs
+
+---
+
+Bonne surprise N°4 : Déploiement (binaire sans dépendances)
+- Cross compilation possible
+
+---
+
+Bonne surprise N°5 : Monitoring
+
+On peut laisser un production le serveur HTTP permettant de monitorer le code. Par exemple, on pourra à tout instant afficher l'état de toutes les goroutines.
+
+---
+
+Bonne surprise n°6 : L'API de tests
+Simplissime mais efficace
+
+---
+
+Bonne surprise n°7 : go test -race
+Permet de repérer des risques d'interblocage
+
+---
+
+Bonne surprise n°7 : Stabilité de l'application déployée en production
+Pas de risque de SegFault ni de core dump.
+Du à l'absence d'arithmétique de pointeurs
+
+---
+
+Bonne surprise n°8 : Support, communication et communauté
+- BOnne documentation des APIs
+- Code source disponible 
+- Existende de nombreuses lib sur Github
+- Nombreux blogs persos et évènements
+- Et super mascotte ;)
+
+---
+
+Bonne surprise n°9 : Open source et gratuit
+
+Code source très digeste contraitement aux classes du JDK
+
+---
+
+
+- Retour sur les performances et la maintenabilité.
+- Résultats des benches go/legacy
+- Outils de monitoring mis en production
 
 
