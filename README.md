@@ -373,12 +373,45 @@ Bonne surprise n°8 : Support, communication et communauté
 
 Bonne surprise n°9 : Open source et gratuit
 
-Code source très digeste contraitement aux classes du JDK
+Code source très digeste contrairement aux classes du JDK
 
 ---
 
+Retour sur les performances et la maintenabilité.
 
-- Retour sur les performances et la maintenabilité.
+---
+
+Machine de développement
+ - Affranchissement des limitations réseau
+ - Mocks plus performants qu'implémentations réelles
+
+254 req./s pour la version en GO
+139 req./s pour la version en Java
+
+---
+
+Environnement de préproduction
+ - Limité par les performances des applications connexes
+
+30 req./s pour la version en GO
+30 req./s pour la version en Java (avec drop de paquets)
+
+---
+
+RAM et CPU
+
+ - Environnement de préproduction
+ - Java : 94% CPU, 8.5% RAM
+ - Go :   2% CPU,  1.2% RAM
+
+--- 
+
+Maintenabilité
+
+ - 
+ - 
+ 
+- 
 - Résultats des benches go/legacy
 - Outils de monitoring mis en production
 
