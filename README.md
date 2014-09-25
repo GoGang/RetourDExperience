@@ -393,14 +393,15 @@ Machine de développement
 Environnement de préproduction
  - Limité par les performances des applications connexes
 
-30 req./s pour la version en GO
-30 req./s pour la version en Java (avec drop de paquets)
+ - 30 req./s pour la version en GO
+ - 30 req./s pour la version en Java (avec drop de paquets)
 
 ---
 
 RAM et CPU
 
  - Environnement de préproduction
+ - A charge égale
  - Java : 94% CPU, 8.5% RAM
  - Go :   2% CPU,  1.2% RAM
 
@@ -408,11 +409,26 @@ RAM et CPU
 
 Maintenabilité
 
- - 
- - 
+ - Syntaxe plus simple
+ - Apis plus accessibles
+ - Pas de hiérarchie d'objets
+ - Pas de patterns
  
-- 
-- Résultats des benches go/legacy
-- Outils de monitoring mis en production
+---
 
+Outils de monitoring
 
+ - Monitoring via package pprof
+ - Dump des Goroutines
+ - Temps de contention des goroutines
+ - Profilage
+ - Pas d'overhead au runtime, utilisé en production
+ - Outils GNU
+
+---
+
+Conclusion
+
+ - Expérience concluante
+ - Projet en production
+ - Léger retard dû à des fonctionnalités de l'application hors normse
