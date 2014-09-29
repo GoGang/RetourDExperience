@@ -192,6 +192,27 @@ Go est un langage :
 
 ---
 
+Les channels
+
+```go
+package main
+
+func main() {
+	c := make(chan int, 1)
+	c <- 42
+	val := <-c
+	println(val)
+}
+```
+
+<http://play.golang.org/p/Kq0Ih_NwIH>
+
+- File d'attente intégrée au langage
+- FIFO
+- Très largement utilisée pour gérer la concurrence et les attentes de thread
+
+---
+
 Les goroutines
 
 ```go
@@ -220,27 +241,6 @@ func main() {
 
 ---
 
-Les channels
-
-```go
-package main
-
-func main() {
-	c := make(chan int, 1)
-	c <- 42
-	val := <-c
-	println(val)
-}
-```
-
-<http://play.golang.org/p/Kq0Ih_NwIH>
-
-- File d'attente intégrée au langage
-- FIFO
-- Très largement utilisée pour gérer la concurrence et les attentes de thread
-
----
-
 La commande Go
 
 - go build
@@ -252,11 +252,11 @@ La commande Go
 
 Les exécutables en Go
 
--Binaire compilé statiquement donc standalone
--"Hello world" ~ 1Mo (embarque toutes les bibliothèques utilisées)
--Embarque le garbage collector
--Cross compilation possible
--Pf supportées : FreeBSD et Linux 32/64 sur x86 et ARM, Windows, MacOS,...
+- Binaire compilé statiquement donc standalone
+- "Hello world" ~ 1Mo (embarque toutes les bibliothèques utilisées)
+- Embarque le garbage collector
+- Cross compilation possible
+- PF supportées : FreeBSD et Linux 32/64 sur x86 et ARM, Windows, MacOS,...
 
 ---
 
