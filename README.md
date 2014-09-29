@@ -1,12 +1,12 @@
 RetourExperience
 ================
 
-Retour d'expérience projet Go
+Retour d'expérience sur un projet en Golang
 
 Soumission à Bdx.io
 -------------------
 
-Présentation de 50' dans le thème *Langages / Fraleworks / Tooling*.
+Présentation de 50' dans le thème *Langages / Frameworks / Tooling*.
 
 ### Titre
 
@@ -14,7 +14,7 @@ Retour d'expérience sur la mise en oeuvre du Go au sein d'Orange
 
 ### Résumé
 
-Notre équipe à mis en oeuvre le langage de programmation Go dans un projet de serveur haute performance dans l'infrastructure SMS d'Orange. Au cours de cette présentation, nous détaillerons :
+Notre équipe à mis en oeuvre le langage de programmation Go dans un projet de serveur haute performance au sein de l'infrastructure SMS d'Orange. Au cours de cette présentation, nous détaillerons :
 
 - Le contexte du projet et ses contraintes.
 - Rapide présentation du Go.
