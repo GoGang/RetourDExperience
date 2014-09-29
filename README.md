@@ -186,7 +186,7 @@ Présentation de Go
 Go est un langage :
 - Open source
 - Compilé
-- Typé statiquement
+- Typage fort, statique et inféré
 - Orienté concurrence
 - Garbage collecté
 
