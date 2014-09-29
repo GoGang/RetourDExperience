@@ -356,13 +356,13 @@ Permet de repérer des risques d'interblocage
 
 ---
 
-Bonne surprise n°7 : Stabilité de l'application déployée en production
+Bonne surprise n°8 : Stabilité de l'application déployée en production
 Pas de risque de SegFault ni de core dump.
 Du à l'absence d'arithmétique de pointeurs
 
 ---
 
-Bonne surprise n°8 : Support, communication et communauté
+Bonne surprise n°9 : Support, communication et communauté
 - BOnne documentation des APIs
 - Code source disponible 
 - Existende de nombreuses lib sur Github
@@ -371,7 +371,7 @@ Bonne surprise n°8 : Support, communication et communauté
 
 ---
 
-Bonne surprise n°9 : Open source et gratuit
+Bonne surprise n°10 : Open source et gratuit
 
 Code source très digeste contrairement aux classes du JDK
 
