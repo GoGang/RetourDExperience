@@ -209,9 +209,9 @@ Ecueil n°4 : Vendorisation
 Bonne surprise N°1 : Apprentissage de Go
 
 La montée en compétence est rapide, de l'ordre de la semaine. Le langage est simple:
-- La syntaxe est simple
+- Syntaxe simple
 - Goroutine et channels
-- Features avancées (champs anonymes)
+- Interfaces, Composition de structures
 
 ---
 
