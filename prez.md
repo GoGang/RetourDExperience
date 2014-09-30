@@ -211,7 +211,7 @@ Bonne surprise N°1 : Apprentissage de Go
 La montée en compétence est rapide, de l'ordre de la semaine. Le langage est simple:
 - La syntaxe est simple
 - Goroutine et channels
-- Features avancées (champs annonymes)
+- Features avancées (champs anonymes)
 
 ---
 
