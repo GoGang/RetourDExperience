@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="remark,remarkjs,markdown,slideshow,presentation" />
     <meta name="description" content="A simple, in-browser, markdown-driven slideshow tool." />
-    <title>Remark</title>
+    <title>Ready to Go</title>
     <style type="text/css">
       @import url(http://fonts.googleapis.com/css?family=Droid+Serif);
       @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -130,15 +130,97 @@ class: center, middle, inverse
 ---
 #Ready to Go ?
 [Retour d'expérience sur un projet en Golang]
-.footnote[[goo.gl/OXS5py](goo.gl/OXS5py)]
+.footnote[[goo.gl/OXS5py](http://goo.gl/OXS5py)]
+---
+#This is where it all began
 ---
 layout: false
 .left-column[
   ## Qui sommes nous ?
 ]
 .right-column[
+
+- #Michel Casabianca
  
+- #Benjamin Chenebault
+ 
+- #Jacques Antoine Massé
 ]
+---
+.left-column[
+  ## Qui sommes nous ?
+  ## La plateforme XMS
+]
+.right-column[
+
+###Plate-forme d'envoi et réception SMS/MMS entre des éditeurs de service et des usagers mobile 
+
+SCHEMA SIMPLE ICI
+
+- 30 applis en production
+
+- Langages Java, C & Python
+
+- 6 dev, 3 ops   
+
+- Plusieurs centaines de clients
+
+- 900 millions de sms/an
+
+- 23 millions d'€ de CA
+
+]
+
+---
+.left-column[
+  ## Qui sommes nous ?
+  ## La plateforme XMS
+  ## Le projet SGS-enabler
+]
+.right-column[
+
+###Principal frontal d'accès à la plateforme XMS
+
+SCHEMA ICI
+
+]
+
+---
+.left-column[
+  ## Qui sommes nous ?
+  ## La plateforme XMS
+  ## Le projet SGS-enabler
+  ## Soucis de maintenance
+]
+.right-column[
+
+###Maintenance très complexe et couteuse
+
+- Développé par un grand nombre de personnes
+
+- Agrégat de design patterns : Observer, Factory, Object pool, Composite
+
+- Très peu, voire aucune documentation
+
+- Beaucoup de problématiques réseau
+
+- Problématiques d'accès concurrent réglés à coups de ConcurrentHashMap, de ScheduledThreadPoolExecutor noyés dans des blocs synchronisés
+
+- Monitorées à partir beans exposés en JMX
+
+- [...]
+
+]
+
+---
+
+#...
+#Vers une réécriture de notre application
+
+---
+template: inverse
+
+#Java VS Golang
 
 ---
 
