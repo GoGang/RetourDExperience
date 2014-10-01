@@ -224,6 +224,262 @@ template: inverse
 
 ---
 
+template: inverse
+#Survol du langage Go
+
+---
+
+.left-column[
+  ## Présentation générale
+]
+
+.right-column[
+### Go est un langage :
+## Open source
+## Compilé
+## Typage fort, statique et inféré
+## Orienté concurrence
+## Garbage collecté
+]
+
+---
+.left-column[
+  ## Présentation générale
+  ## Channels
+]
+
+.right-column[
+
+###Les channels
+
+```go
+package main
+
+func main() {
+	c := make(chan int, 1)
+	c <- 42
+	val := <-c
+	println(val)
+}
+```
+
+<http://play.golang.org/p/Kq0Ih_NwIH>
+
+- Primitive du langage
+- File FIFO
+- Très largement utilisée pour gérer la concurrence et les attentes de thread
+]
+---
+.left-column[
+  ## Présentation générale
+  ## Channels
+  ## Goroutines
+]
+.right-column[
+
+###Les goroutines
+
+```go
+package main
+
+func producer(c chan string) {
+	c <- "hello"
+}
+
+func consumer(c chan string) {
+	println(<-c)
+}
+
+func main() {
+	c := make(chan string)
+	go consumer(c)
+	producer(c)
+}
+```
+
+- Primitives du langage
+- Très légères en terme de ressources (~4ko)
+- Multiplexé sur un ou plusieurs threads de l'OS
+
+<http://play.golang.org/p/y6W8I8lJYA>
+]
+---
+
+.left-column[
+  ## Présentation générale
+  ## Channels
+  ## Goroutines
+  ## Outillage
+]
+.right-column[
+
+###Les commandes Go
+
+- go build
+	- Compilation
+
+- go run
+	- Compilation + exécution
+
+- go test
+	- Tous les tests, 
+	- Un test particulier
+
+- go fmt
+	- Formatage
+	- Réfactoring (un peu)
+
+- go get
+	- Import de bibliothèques
+ 
+- go tool, go vet, go errcheck...
+ 
+## Lancés par un gestionnaire de build ou un script shell
+]
+---
+.left-column[
+  ## Présentation générale
+  ## Channels
+  ## Goroutines
+  ## Outillage
+  ## Exécutables
+]
+.right-column[
+
+###Les exécutables
+
+- Binaire sans dépendance dynamique
+
+- Volumineux 
+	- "Hello world" ~ 1Mo 
+	- Embarque toutes les bibliothèques utilisées
+
+- Plate Formes supportées : 
+	- FreeBSD et Linux 32/64 sur x86 et ARM, Windows, MacOS,...
+	
+- Plate Formes supportées : 
+]
+---
+.left-column[
+  ## Présentation générale
+  ## Channels
+  ## Goroutines
+  ## Outillage
+  ## Exécutables
+  ## Environnement de développement
+]
+.right-column[
+
+###L'environnement de développement
+- go code
+
+- Existence de modes pour emacs et vi
+	- go-vim
+	- go-snippets, autocomplete, flycheck,...e
+	
+- Plugins Eclise, IntelliJ,...
+	
+- Liteide
+	- Open Source
+	- écrit en Go
+
+]
+---
+
+template: inverse
+#Les bonnes surprises
+
+---
+.left-column[
+  ## Bonnes Surprises
+  ## Numéro 1
+]
+.right-column[
+
+###Montée en compétence rapide
+
+- Courbe d'apprentissage douce
+
+- La syntaxe est simple 
+	- "Langage procédural à accolades"
+- Outillage efficace
+
+- Goroutine et channels
+	- Asynchronsime
+	- Patterns de concurrence
+
+- Features avancées
+	- Composition de structures
+	- Programmation "fonctionnelles"
+	- Utilisation d'interfaces
+]
+---
+.left-column[
+  ## Bonnes Surprises
+  ## Numéro 1
+  ## Numéro 2
+]
+.right-column[
+###Qualité des API
+
+```go
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"log"
+	"net/http"
+)
+
+func main() {
+	res, err := http.Get("http://www.google.com/robots.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	robots, err := ioutil.ReadAll(res.Body)
+	res.Body.Close()
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("%s", robots)
+}
+```
+
+http://play.golang.org/p/VPwJf7DuUo
+]
+---
+.left-column[
+  ## Bonnes Surprises
+  ## Numéro 1
+  ## Numéro 2
+  ## Numéro 9
+]
+.right-column[
+###Support, communication et communauté
+- Bonne documentation des APIs
+- Code source disponible 
+- Existende de nombreuses lib sur Github
+- Nombreux blogs persos et évènements
+- Et super mascotte ;)
+]
+---
+.left-column[
+  ## Bonnes Surprises
+  ## Numéro 1
+  ## Numéro 2
+  ## Numéro 9
+  ## Numéro 10
+]
+.right-column[
+###Open source, gratuit et bien écrit
+
+Code source très digeste contrairement aux classes du JDK
+
+]
+---
+
+
 ## That's all folks (for now)!
 
 Slideshow created using [remark](http://github.com/gnab/remark).
