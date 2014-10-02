@@ -48,12 +48,6 @@ SCHEMA ICI
 - Problématiques d'accès concurrent réglés à coups de ConcurrentHashMap, de ScheduledThreadPoolExecutor noyés dans des blocs synchronisés
 - Monitorées à partir beans exposés en JMX
 ---
-### Conclusion
-
-Malgré des mois passés à débugger l'application, elle n'a jamais été suffisament stable pour pouvoir migrer tous les clients dessus
-
-Il a donc été envisagé de réécrire l'application.
----
 # Etude technique
 
 Réalisation d'un sous ensemble des fonctionnalités du projet dans le but de décider du choix de la techno.
@@ -216,6 +210,7 @@ func main() {
 /Le Go/Environnements
 
 ###L'environnement de développement
+
 - go code
 
 - Existence de modes pour emacs et vi
@@ -226,7 +221,7 @@ func main() {
 	
 - Liteide
 	- Open Source
-	- écrit en Go
+	- Ecrit en Go
 
 ---
 #Les Bonnes Surprises
@@ -286,26 +281,44 @@ http://play.golang.org/p/VPwJf7DuUo
 
 ###Monitoring
 
-- Existence du package pprof qui se bind à un serveur http
+- Utilisation du package [pprof](http://golang.org/pkg/net/http/pprof/)
 
-- Fournit un heap profil 
+- Aucune instrumentation de code nécessaire
 
-go tool pprof http://localhost:6060/debug/pprof/heap
+- Génération de heap dump et de cpu profiling
 
-- 30-second CPU profile
+- Le package se bind sur un serveur HTTP
 
-go tool pprof http://localhost:6060/debug/pprof/profile
+- `go tool pprof`, outil de visualisation des pprofs
 
-- Goroutine blocking profile
 
-go tool pprof http://localhost:6060/debug/pprof/block
-
-On peut laisser un production le serveur HTTP permettant de monitorer le code. Par exemple, on pourra à tout instant afficher l'état de toutes les goroutines.
+On peut laisser un production le serveur HTTP permettant de monitorer le code. 
+Par exemple, on pourra ainsi à tout instant afficher l'état de toutes les goroutines.
 
 ---
 /Bonnes surprises/API de tests
 
 ###L'API de tests
+
+- Utilisation du package [testing](http://golang.org/pkg/testing/)
+
+- Par convention, les fichiers de tests sont nommés XXX_test.go
+
+- `go test` permet d'exécuter les tests
+
+- Il existe deux types de test :
+    - Les tests unitaires : `TestXxx(*testing.T)`
+    - Les benchmarks : `BenchmarkXxx(*testing.B)`
+    
+```go
+import "testing"
+
+func TestFunctionTralala(t *testing.T) {
+    if "tralala" != "tralala" {
+        t.Fail()
+    }
+}
+```
 
 Simplissime mais efficace
 ---
@@ -412,15 +425,18 @@ RAM et CPU
 /Outils de monitoring
 
 - Monitoring via package pprof
-- Dump des Goroutines
-- Temps de contention des goroutines
-- Profilage
 - Pas d'overhead au runtime, utilisé en production
-- Outils GNU
+- Script de supervision pour surveiller les goroutines
+- Temps de contention des goroutines
+
+IMAGE HOBBIT
 
 ---
 /Conclusion
 
-- Expérience concluante
-- Projet en production
+- Un langage syntaxiquement et conceptuellement simple 
+- Adapté pour des applications pour lesquelles la performance est un enjeu
+- Outillage très simple à utilisé
+- Outils de profiling
+- Un vrai plaisir... ;)
 
