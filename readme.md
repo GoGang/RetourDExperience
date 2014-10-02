@@ -222,7 +222,6 @@ func main() {
 ## Lancés par un gestionnaire de build ou un script shell
 
 ---
-
 /Le Go/Les Exécutables
 
 ###Les exécutables
@@ -237,7 +236,6 @@ func main() {
 	- FreeBSD et Linux 32/64 sur x86 et ARM, Windows, MacOS,…
 
 ---
-
 /Le Go/Environnements
 
 ###L'environnement de développement
@@ -330,24 +328,52 @@ On peut laisser un production le serveur HTTP permettant de monitorer le code. P
 ---
 /Bonnes surprises/API de tests
 
-###L'API de tests
+### L'API de tests
 
-Simplissime mais efficace
+Cette API est tout à fait comparable à un JUnit :
+
+```go
+package main
+
+import "testing"
+
+func Add(x, y int) int {
+    return x+y
+}
+
+func TestAdd(t *testing.T) {
+    if Add(1, 2) != 3 {
+        t.Error("Bad luck!")
+    }
+}
+```
+
+- Elle est plus simple (pas de `assert`)
+- Elle dispose d'outil pour lancer les tests d'un package
+
 ---
-/Bonnes surprises/go test -race
+/Bonnes surprises/Accès concurrents
 
-L'option `-race` détecte les risques d'interblocage de l'application
-- On peut l'appliquer pour les tests
-- Mais aussi au runtime (mais consommateur de ressources)
+### Accès concurrents
+
+Il est possible de lancer les tests unitaires avec l'option `-race`. Go est alors capable de détecter les acceès concurrents à la mémoire.
+
+Mais il est aussi possible d'appliquer cette option à la compilation pour détecter les accès concurrents au runtime. Ceci peut être utile si la couverture de test est faible, mais attention aux performances.
 
 ---
 /Bonnes surprises/Stabilité de l'application
 
-Pas de risque de SegFault ni de core dump.
-Du à l'absence d'arithmétique de pointeurs
+### Stabilité de l'application
+
+Au cours de nos développements et de nos tests de charge, nous n'avons jamais vu planter notre logiciel :
+
+- Pas de SegFault ni de core dump.
+- Parceque pas d'arithmétique de pointeurs
 
 ---
 /Bonnes surprises/Support et communauté
+
+### Support et communauté
 
 - Bonne documentation des APIs
 - Code source disponible 
@@ -356,24 +382,75 @@ Du à l'absence d'arithmétique de pointeurs
 - Et super mascotte ;)
 
 ---
-/Bonnes surprises/Open source et gratuit
+/Bonnes surprises/Open source
 
-Code source très digeste contrairement aux classes du JDK
+### Open source
+
+Google a joué pleinement le jeu de l'Open Source :
+
+- La licence du logiciel est très ouverte (de type BSD)
+- Code source très clair et facilement modifiable
+- Développement dynamique
 
 ---
-/Les ecueils/Les Erreurs
+/Les ecueils/Gestion des Erreurs
 
-###La gestion des erreurs est rébarbative
+### La gestion des erreurs est rébarbative
+
+Source Go typique :
+
+```go
+f, err := os.Open("filename.ext")
+if err != nil {
+    log.Fatal(err)
+}
+```
+
+Cette gestion des erreurs :
+
+- Est répétitive
+- On ne peut gérer des erreurs *en bloc*
+- On ne peut typer les erreurs
+
+Il est possible de lancer des *paniques* :
+
+- Elles sont propagées
+- Peuvent être interceptées
+- Ce ne sont cependant pas des exceptions
 
 ---
 /Les ecueils/API de logs
 
-###API de Logs
+### API de Logs
+
+L'API de logs est assez critiquée car elle :
+
+- Ne gère pas des niveaux de logs
+- Ne gère pas des fichiers de configuration
+- Doit donc être configurée dans le code
 
 ---
 /Les ecueils/Certificats
 
-###Certificats
+### Certificats
+
+Nous avons rencontré des difficultés pour la gestion des certificats :
+
+- Des certificats générés sans l'option XXX ne peuvent servir à authentifier un client
+- L'algorithme MD5 n'est pas supporté pour la signature de certificats
+
+Si tous ces choix sont probablement pertinents, ils peuvent poser des problèmes avec l'existant
+
+TODO : vérifier les options exactes
+
+---
+/Les ecueils/Gestion des encodages
+
+### Gestion des encodages
+
+Seul l'*UTF-8* et l'*UTF-16* sont supportés.
+
+Nous sommes tous d'accord que ce choix est évident, cependant cela peut rendre difficile la gestion de l'existant.
 
 ---
 /Les ecueils/Vendorisation
@@ -399,26 +476,36 @@ commit = "23d36c08ab90f4957ae8e7d781907c368f5454dd"
 ```
 
 ---
-Retour sur les performances et la maintenabilité.
+# Retour sur les performances et la maintenabilité.
 ---
-/Performances/Développement
+/Performances/Poste de Développement
+
+### Poste de Développement
 
 - Affranchissement des limitations réseau
 - Mocks plus performants qu'implémentations réelles
 
-254 req./s pour la version en GO
-139 req./s pour la version en Java
+Les résultats sont les suivants :
+
+- 254 req./s pour la version en GO
+- 139 req./s pour la version en Java
 
 ---
 /Performances/Préproduction
 
+### Préproduction
+
 - Limité par les performances des applications connexes
 
-30 req./s pour la version en GO
-30 req./s pour la version en Java (avec drop de paquets)
+Les résultats sont les suivants :
+
+- 30 req./s pour la version en GO
+- 30 req./s pour la version en Java (avec drop de paquets)
 
 ---
-RAM et CPU
+/Performances/RAM & CPU
+
+### RAM et CPU
 
 - Environnement de préproduction
 - A charge égale
@@ -426,7 +513,9 @@ RAM et CPU
 - Go :   2% CPU,  1.2% RAM
 
 --- 
-/Maintenabilité
+/Performances/Maintenabilité
+
+### Maintenabilité
 
 - Syntaxe plus simple
 - Apis plus accessibles
@@ -434,7 +523,9 @@ RAM et CPU
 - Pas de patterns
  
 ---
-/Outils de monitoring
+/Performances/Outils de monitoring
+
+### Outils de monotoring
 
 - Monitoring via package pprof
 - Dump des Goroutines
@@ -444,8 +535,11 @@ RAM et CPU
 - Outils GNU
 
 ---
-/Conclusion
+# Conclusion
 
-- Expérience concluante
-- Projet en production
+Expérience concluante
+
+Projet en production
+
+\Slideshow created using [remark](http://github.com/gnab/remark).
 
