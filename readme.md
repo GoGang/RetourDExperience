@@ -231,8 +231,7 @@ func main() {
 ---
 #Les Bonnes Surprises
 ---
-
-/Les bonnes surprises/Numéro 1
+/Bonnes surprises/Montée en compétence
 
 ###Montée en compétence rapide
 
@@ -252,8 +251,8 @@ func main() {
 	- Utilisation d'interfaces
 
 ---
+/Bonnes surprises/Qualité des APIs
 
-/Les bonnes surprises/Numéro 2
 ###Qualité des API
 
 ```go
@@ -283,8 +282,8 @@ func main() {
 http://play.golang.org/p/VPwJf7DuUo
 
 ---
+/Bonnes surprises/Monitoring
 
-/Les bonnes surprises/Numéro 5
 ###Monitoring
 
 - Existence du package pprof qui se bind à un serveur http
@@ -301,57 +300,58 @@ go tool pprof http://localhost:6060/debug/pprof/profile
 
 go tool pprof http://localhost:6060/debug/pprof/block
 
-
-
 On peut laisser un production le serveur HTTP permettant de monitorer le code. Par exemple, on pourra à tout instant afficher l'état de toutes les goroutines.
 
 ---
+/Bonnes surprises/API de tests
 
-/Les bonnes surprises/Numéro 6
 ###L'API de tests
+
 Simplissime mais efficace
 ---
+/Bonnes surprises/go test -race
 
-Bonne surprise n°7 : go test -race
-Permet de repérer des risques d'interblocage
+L'option `-race` détecte les risques d'interblocage de l'application
+- On peut l'appliquer pour les tests
+- Mais aussi au runtime (mais consommateur de ressources)
 
 ---
+/Bonnes surprises/Stabilité de l'application
 
-Bonne surprise n°8 : Stabilité de l'application déployée en production
 Pas de risque de SegFault ni de core dump.
 Du à l'absence d'arithmétique de pointeurs
 
-Bonne surprise n°9 : Support, communication et communauté
-- BOnne documentation des APIs
+---
+/Bonnes surprises/Support et communauté
+
+- Bonne documentation des APIs
 - Code source disponible 
 - Existende de nombreuses lib sur Github
 - Nombreux blogs persos et évènements
 - Et super mascotte ;)
 
 ---
-
-Bonne surprise n°10 : Open source et gratuit
+/Bonnes surprises/Open source et gratuit
 
 Code source très digeste contrairement aux classes du JDK
 
 ---
+/Les ecueils/Les Erreurs
 
-/Les ecueils/Numéro 1
-###La gestion des erreurs peut sembler réberbatifs
-
----
-
-/Les ecueils/Numéro 2
-###Logging
+###La gestion des erreurs est rébarbative
 
 ---
+/Les ecueils/API de logs
 
-/Les ecueils/Numéro 3
+###API de Logs
+
+---
+/Les ecueils/Certificats
+
 ###Certificats
 
 ---
-
-/Les ecueils/Numéro 4
+/Les ecueils/Vendorisation
 ###La vendorisation
 
 - Absence volontaire de package manager natif
@@ -374,60 +374,53 @@ commit = "23d36c08ab90f4957ae8e7d781907c368f5454dd"
 ```
 
 ---
----
-
 Retour sur les performances et la maintenabilité.
-
 ---
+/Performances/Développement
 
-Machine de développement
- - Affranchissement des limitations réseau
- - Mocks plus performants qu'implémentations réelles
+- Affranchissement des limitations réseau
+- Mocks plus performants qu'implémentations réelles
 
 254 req./s pour la version en GO
 139 req./s pour la version en Java
 
 ---
+/Performances/Préproduction
 
-Environnement de préproduction
- - Limité par les performances des applications connexes
+- Limité par les performances des applications connexes
 
- - 30 req./s pour la version en GO
- - 30 req./s pour la version en Java (avec drop de paquets)
+30 req./s pour la version en GO
+30 req./s pour la version en Java (avec drop de paquets)
 
 ---
-
 RAM et CPU
 
- - Environnement de préproduction
- - A charge égale
- - Java : 94% CPU, 8.5% RAM
- - Go :   2% CPU,  1.2% RAM
+- Environnement de préproduction
+- A charge égale
+- Java : 94% CPU, 8.5% RAM
+- Go :   2% CPU,  1.2% RAM
 
 --- 
+/Maintenabilité
 
-Maintenabilité
-
- - Syntaxe plus simple
- - Apis plus accessibles
- - Pas de hiérarchie d'objets
- - Pas de patterns
+- Syntaxe plus simple
+- Apis plus accessibles
+- Pas de hiérarchie d'objets
+- Pas de patterns
  
 ---
+/Outils de monitoring
 
-Outils de monitoring
-
- - Monitoring via package pprof
- - Dump des Goroutines
- - Temps de contention des goroutines
- - Profilage
- - Pas d'overhead au runtime, utilisé en production
- - Outils GNU
+- Monitoring via package pprof
+- Dump des Goroutines
+- Temps de contention des goroutines
+- Profilage
+- Pas d'overhead au runtime, utilisé en production
+- Outils GNU
 
 ---
+/Conclusion
 
-Conclusion
-
- - Expérience concluante
- - Projet en production
+- Expérience concluante
+- Projet en production
 
