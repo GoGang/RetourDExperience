@@ -7,11 +7,11 @@
 ---
 /Qui sommes nous ?/L'équipe
 
-- #Michel Casabianca
- 
-- #Benjamin Chenebault
- 
-- #Jacques Antoine Massé
+L'équipe des développeurs ayant participé au projet est constituée de :
+
+- Michel Casabianca
+- Benjamin Chenebault
+- Jacques Antoine Massé
 ---
 /Qui sommes nous ?/La plateform XMS
 
@@ -20,16 +20,12 @@
 SCHEMA SIMPLE ICI
 
 - 30 applis en production
-
 - Langages Java, C & Python
-
 - 6 dev, 3 ops   
-
 - Plusieurs centaines de clients
-
 - 900 millions de sms/an
-
 - 23 millions d'€ de CA
+
 ---
 /Qui sommes nous ?/Le projet SGS-enabler
 
@@ -39,7 +35,7 @@ SCHEMA ICI
 ---
 /Qui sommes nous ?/Soucis de maintenance
 
-###Maintenance très complexe et couteuse
+### Maintenance très complexe et coûteuse
 
 - Développé par un grand nombre de personnes
 - Agrégat de design patterns : Observer, Factory, Object pool, Composite
@@ -48,61 +44,90 @@ SCHEMA ICI
 - Problématiques d'accès concurrent réglés à coups de ConcurrentHashMap, de ScheduledThreadPoolExecutor noyés dans des blocs synchronisés
 - Monitorées à partir beans exposés en JMX
 ---
+/Qui sommes nous ?/Conclusion
+
 ### Conclusion
 
-Malgré des mois passés à débugger l'application, elle n'a jamais été suffisament stable pour pouvoir migrer tous les clients dessus
+Malgré des mois passés à débugger l'application, elle n'a jamais été suffisament stable pour pouvoir y migrer tous nos clients
 
-Il a donc été envisagé de réécrire l'application.
+**Il a donc été envisagé de réécrire l'application**
 ---
 # Etude technique
 
-Réalisation d'un sous ensemble des fonctionnalités du projet dans le but de décider du choix de la techno.
-Périmètre réduit : Acceptation d'une requête HTTP, utilisation de lib XML, authentification par IP, requêtage HTTP, ouverture et envoie de données en TCP. => FAIRE SCHEMA SIMPLE
+---
+/Etude technique/Périmètre
+
+## Le périmètre de l'étude technique
+
+- Un seul connecteur (frontal HTTP)
+- Fonctionnalités principale
+  - Parsing XML
+  - Authentification par IP
+  - Appel d'un serveur par TCP
 
 ---
-# Critères de choix de la technologie
+/Etude technique/Critères de choix
 
-Performances
-Simplicité de développement et de lecture de code
-Consommation ressources CPU/mémoire
+## Critères de choix de la technologie
 
----
-Les alternatives
-
-Développement en Java avec utilisation d'IO synchrones/multithread (VS NIO dans implémentation legacy)
-Développement en Go avec l'utilisation des channels et des go routines
-
-Réalisation des 2 POCs en parallèle sur 10 jours de développement.
+- Simplicité de développement
+- Maintenance facile du code
+- Performances au runtime
+- Consommation ressources CPU/mémoire
 
 ---
-Les résultats des POCS
+/Etude technique/Les alternatives
 
-Nombre de lignes de code comparable
-Complexité comparable avec un léger avantage à Go
-Protocole de test : Test de montée en charge et de vieillissement de l'application
+## Alternatives techniques
+
+L'existant a été développé en Java avec utilisation des NIO non bloquantes. Les alternatives envisagées ont été les suivantes :
+
+- Java avec utilisation d'IO synchrones/multithread
+- Go avec utilisation des channels et de goroutines
+
+Les deux POCs ont été developpés en parallèle en 10 jours environ
+
+---
+/Etude technique/Résultats
+
+## Les résultats des POCS
+
+- Nombre de lignes de code comparable
+- Complexité comparable avec un léger avantage à Go
+- Tests en charge en faveur de Go (10% environ)
+
 Mesure du nombre du nb de requêtes par seconde et du temps moyen de traitement d'une requête
 
 ---
-Les résultats des POCS
+/Etude technique/Nombre de requêtes par seconde
 
-LES GRAPHES NB REQUETE/SEC ICI
+## Nombre de requêtes par seconde
 
----
-Les résultats des POCS
-
-LES GRAPHES temps moyen par requete ICI
+![Nombre de requêtes par seconde](img/nombre-requetes.png)
 
 ---
-Les résultats des POCS
+/Etude technique/Temps moyen par requête
 
-LES GRAPHES RAM ET CPU ICI
+## Temps moyen par requête
+
+![Temps moyen de réponse par requête](img/temps-reponse.png)
 
 ---
-Conclusion de l'étude technique
+/Etude technique/RAM et CPU
 
-Architecture du programme en Go simplifiée
-Les performances en Go sont meilleures d'environ 10%
-Consommation RAM/CPU en faveur de Go
+TODO
+
+---
+/Etude technique/Résultats
+
+## Résultats
+
+Il est resorti de l'étude technique que :
+
+- L'architecture en Go est plus simple
+- Les performances du Go sont légèrement meilleures (d'environ 10%)
+- Les consommations RAM & CPU sont en faveur de Go
+
 ---
 #Java VS Golang
 ---
