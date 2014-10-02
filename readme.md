@@ -1,95 +1,140 @@
-RetourExperience
-================
+---
+#Ready to Go ?
+[Retour d'expérience sur un projet en Golang]
+\[goo.gl/OXS5py](http://goo.gl/OXS5py)
+---
+#This is where it all began
+---
+/Qui sommes nous ?/L'équipe
 
-Retour d'expérience sur un projet en Golang
+- #Michel Casabianca
+ 
+- #Benjamin Chenebault
+ 
+- #Jacques Antoine Massé
+---
+/Qui sommes nous ?/La plateform XMS
 
-Soumission à Bdx.io
--------------------
+###Plate-forme d'envoi et réception SMS/MMS entre des éditeurs de service et des usagers mobile 
 
-Présentation de 50' dans le thème *Langages / Frameworks / Tooling*.
+SCHEMA SIMPLE ICI
 
-### Titre
+- 30 applis en production
 
-Retour d'expérience sur la mise en oeuvre du Go au sein d'Orange
+- Langages Java, C & Python
 
-### Résumé
+- 6 dev, 3 ops   
 
-Notre équipe à mis en oeuvre le langage de programmation Go dans un projet de serveur haute performance au sein de l'infrastructure SMS d'Orange. Au cours de cette présentation, nous détaillerons :
+- Plusieurs centaines de clients
 
-- Le contexte du projet et ses contraintes.
-- Rapide présentation du Go.
-- Les raisons du choix de Go.
-- Ecueils et bonnes surprises lors du développement.
-- Retour sur les performances et la maintenabilité.
+- 900 millions de sms/an
 
-### Message pour le comité de sélection
+- 23 millions d'€ de CA
+---
+/Qui sommes nous ?/Le projet SGS-enabler
 
-Cette conférence sera présentée par l'équipe ayant développé le projet, à savoir :
+###Principal frontal d'accès à la plateforme XMS
 
-- Michel Casabianca
-- Benjamin Chenebault
-- Jacques Antoine Massé
+SCHEMA ICI
+---
+/Qui sommes nous ?/Soucis de maintenance
 
-Elle pourrait être couplée à un atelier d'1h50 sur le langage de programmation Go.
+###Maintenance très complexe et couteuse
+
+- Développé par un grand nombre de personnes
+
+- Agrégat de design patterns : Observer, Factory, Object pool, Composite
+
+- Très peu, voire aucune documentation
+
+- Beaucoup de problématiques réseau
+
+- Problématiques d'accès concurrent réglés à coups de ConcurrentHashMap, de ScheduledThreadPoolExecutor noyés dans des blocs synchronisés
+
+- Monitorées à partir beans exposés en JMX
+
+- [...]
+---
+#...
+#Vers une réécriture de notre application
+---
+#Java VS Golang
+---
+#Survol du langage Go
+---
+/Présentation Générale
+
+Go est un langage :
+- Open source
+- Compilé
+- Typage fort, statique et inféré
+- Orienté concurrence
+- Garbage collecté
 
 ---
 
-Plan
-====
-- Qui sommes nous ?
-  - Orange
-  - Equipe XMS
-- Le contexte du projet et ses contraintes (3 min)
-  - Présentation de l'environnement
-  - Technos mises en oeuvre dans le projet
-  - Les difficultés du projet
-  - Conclusion : nécessité de réécrire l'appli
-- Etude Technique
-  - Java
-  - Go
-  - Réalisation de POCS
-    - Critères de choix
-    - Protocole de test
-    - Graphes de benches
-  - Conclusion de l'étude technique
-    - Choix du Go
-- Rapide présentation du Go.
-  - Concurrence
-  - Outils de développement (commande go)
-  - Environnements de développement
-- Ecueils et bonnes surprises lors du développement.
-  - Difficultés
-    - Pattern 'APPEL+CheckERROR' 
-    - Logging
-    - Certificats
-    - Réapprentissage de pratiques de dév
-    - Gestion des erreurs perfectible (besoin de discipline, très reberbatif, et pas de typage des erreurs)
-    - Vendorisation
-  - Bonnes surprises
-    - Apprentissage de Go 
-    - Qualité des API
-    - Rapidité de développement
-    - Déploiement (binaire sans dépendances)
-    - Monitoring
-    - Librairie standard (dont serveurs http)
-    - API de tests
-    - go test -race
-    - Pas de problèmes rencontrés en PROD, appli stable
-    - Support, communication et communauté
-    - Open source et gratuit
-- Retour sur les performances et la maintenabilité.
-  - Résultats des benches go/legacy
-  - Outils de monitoring mis en production
 
----
 
-Qui sommes nous ?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Michel Casabianca, Benjamin Chenebault et Jacques Antoine Massé.
 
 ---
-
-Equipe XMS
+# Equipe XMS
 
 Plate-forme SMS/MMS entre des éditeurs de service et des usagers mobile
 6 dev, 3 devops
@@ -98,15 +143,13 @@ Quelques centaines de clients
 900 millions de sms/an
 
 ---
-
-Le projet SGS enabler
+# Le projet SGS enabler
 
 Principal frontal d'accès à la plate-forme écrit en Java
 Rôle de loadbalancer, authentifications des clients, serveur HTTP & TCP
 
 ---
-
-Soucis de maintenance
+# Soucis de maintenance
 
 Cout de maintenance exorbitants, bugs difficiles à identifier et corriger
 Appli obsolète => Nécessité de réécriture
@@ -115,21 +158,18 @@ Beaucoup de problèmes de concurrence et de synchronisation du code
 Pas assez de documentation
 
 ---
-
-Conclusion : Nécessité de réécrire l'application
+# Conclusion : Nécessité de réécrire l'application
 
 Malgré des mois passés à débugger l'application, elle n'a jamais été suffisament stable pour pouvoir migrer tous les clients dessus
 
 ---
-
-Etude technique
+# Etude technique
 
 Réalisation d'un sous ensemble des fonctionnalités du projet dans le but de décider du choix de la techno.
 Périmètre réduit : Acceptation d'une requête HTTP, utilisation de lib XML, authentification par IP, requêtage HTTP, ouverture et envoie de données en TCP. => FAIRE SCHEMA SIMPLE
 
 ---
-
-Critères de choix de la technologie
+# Critères de choix de la technologie
 
 Performances
 Simplicité de développement et de lecture de code

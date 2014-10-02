@@ -1,0 +1,48 @@
+Plan
+====
+
+- Qui sommes nous ?
+  - Orange
+  - Equipe XMS
+- Le contexte du projet et ses contraintes (3 min)
+  - Présentation de l'environnement
+  - Technos mises en oeuvre dans le projet
+  - Les difficultés du projet
+  - Conclusion : nécessité de réécrire l'appli
+- Etude Technique
+  - Java
+  - Go
+  - Réalisation de POCS
+    - Critères de choix
+    - Protocole de test
+    - Graphes de benches
+  - Conclusion de l'étude technique
+    - Choix du Go
+- Rapide présentation du Go.
+  - Concurrence
+  - Outils de développement (commande go)
+  - Environnements de développement
+- Ecueils et bonnes surprises lors du développement.
+  - Difficultés
+    - Pattern 'APPEL+CheckERROR' 
+    - Logging
+    - Certificats
+    - Réapprentissage de pratiques de dév
+    - Gestion des erreurs perfectible (besoin de discipline, très reberbatif, et pas de typage des erreurs)
+    - Vendorisation
+  - Bonnes surprises
+    - Apprentissage de Go 
+    - Qualité des API
+    - Rapidité de développement
+    - Déploiement (binaire sans dépendances)
+    - Monitoring
+    - Librairie standard (dont serveurs http)
+    - API de tests
+    - go test -race
+    - Pas de problèmes rencontrés en PROD, appli stable
+    - Support, communication et communauté
+    - Open source et gratuit
+- Retour sur les performances et la maintenabilité.
+  - Résultats des benches go/legacy
+  - Outils de monitoring mis en production
+-
