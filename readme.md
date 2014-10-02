@@ -62,35 +62,182 @@ SCHEMA ICI
 ---
 #Survol du langage Go
 ---
-/Présentation Générale
+/Le Go/Présentation Générale
 
-Go est un langage :
-- Open source
-- Compilé
-- Typage fort, statique et inféré
-- Orienté concurrence
-- Garbage collecté
+### Go est un langage :
+## Open source
+## Compilé
+## Typage fort, statique et inféré
+## Orienté concurrence
+## Garbage collecté
+## Un peu objet, un peu fonctionnel
+
+---
+/Le Go/Channels
+
+###Les channels
+
+```go
+package main
+
+func main() {
+	c := make(chan int, 1)
+	c <- 42
+	val := <-c
+	println(val)
+}
+```
+
+<http://play.golang.org/p/Kq0Ih_NwIH>
+
+- Primitive du langage
+- File FIFO
+- Très largement utilisée pour gérer la concurrence et les attentes de thread
 
 ---
 
+/Le Go/Les Goroutines
+
+###Les Goroutines
+
+```go
+package main
+
+func producer(c chan string) {
+	c <- "hello"
+}
+
+func consumer(c chan string) {
+	println(<-c)
+}
+
+func main() {
+	c := make(chan string)
+	go consumer(c)
+	producer(c)
+}
+```
+
+- Primitives du langage
+- Très légères en terme de ressources (~4ko)
+- Multiplexé sur un ou plusieurs threads de l'OS
+
+<http://play.golang.org/p/y6W8I8lJYA>
+
+---
+/Le Go/Les Commandes Go
+
+###Les commandes Go
+
+- go build
+	- Compilation
+
+- go run
+	- Compilation + exécution
+
+- go test
+	- Tous les tests, 
+	- Un test particulier
+
+- go fmt
+	- Formatage
+	- Réfactoring (un peu)
+
+- go get
+	- Import de bibliothèques
+ 
+- go tool, go vet, go errcheck...
+ 
+## Lancés par un gestionnaire de build ou un script shell
+
+---
+
+/Le Go/Les Exécutables
+
+###Les exécutables
+
+- Binaire sans dépendance dynamique
+
+- Volumineux 
+	- "Hello world" ~ 1Mo 
+	- Embarque toutes les bibliothèques utilisées
+
+- Plate Formes supportées : 
+	- FreeBSD et Linux 32/64 sur x86 et ARM, Windows, MacOS,…
+
+---
+
+/Le Go/Environnements
+
+###L'environnement de développement
+- go code
+
+- Existence de modes pour emacs et vi
+	- go-vim
+	- go-snippets, autocomplete, flycheck, etc.
+	
+- Plugins Eclise, IntelliJ, etc.
+	
+- Liteide
+	- Open Source
+	- écrit en Go
+
+---
+#Les Bonnes Surprises
+---
+
+/Les bonnes surprises/Numéro 1
+
+###Montée en compétence rapide
+
+- Courbe d'apprentissage douce
+
+- La syntaxe est simple 
+	- "Langage procédural à accolades"
+- Outillage efficace
+
+- Goroutine et channels
+	- Asynchronsime
+	- Patterns de concurrence
+
+- Features avancées
+	- Composition de structures
+	- Programmation "fonctionnelles"
+	- Utilisation d'interfaces
+
+---
+
+/Les bonnes surprises/Numéro 2
+###Qualité des API
+
+```go
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"log"
+	"net/http"
+)
+
+func main() {
+	res, err := http.Get("http://www.google.com/robots.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	robots, err := ioutil.ReadAll(res.Body)
+	res.Body.Close()
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("%s", robots)
+}
+```
+
+http://play.golang.org/p/VPwJf7DuUo
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+---
 
 
 
