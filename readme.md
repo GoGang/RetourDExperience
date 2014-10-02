@@ -1,9 +1,9 @@
 ---
-#Ready to Go ?
+# Ready to Go ?
 [Retour d'expérience sur un projet en Golang]
 \[goo.gl/OXS5py](http://goo.gl/OXS5py)
 ---
-#This is where it all began
+# This is where it all began
 ---
 /Qui sommes nous ?/L'équipe
 
@@ -15,9 +15,9 @@ L'équipe des développeurs ayant participé au projet est constituée de :
 ---
 /Qui sommes nous ?/La plateform XMS
 
-###Plate-forme d'envoi et réception SMS/MMS entre des éditeurs de service et des usagers mobile 
+### Plate-forme d'envoi et réception SMS/MMS entre des éditeurs de service et des usagers mobile 
 
-SCHEMA SIMPLE ICI
+TODO : SCHEMA SIMPLE ICI
 
 - 30 applis en production
 - Langages Java, C & Python
@@ -29,9 +29,9 @@ SCHEMA SIMPLE ICI
 ---
 /Qui sommes nous ?/Le projet SGS-enabler
 
-###Principal frontal d'accès à la plateforme XMS
+### Principal frontal d'accès à la plateforme XMS
 
-SCHEMA ICI
+TODO : SCHEMA ICI
 ---
 /Qui sommes nous ?/Soucis de maintenance
 
@@ -59,7 +59,7 @@ Malgré des mois passés à débugger l'application, elle n'a jamais été suffi
 ---
 /Etude technique/Périmètre
 
-## Le périmètre de l'étude technique
+### Le périmètre de l'étude technique
 
 - Un seul connecteur (frontal HTTP)
 - Fonctionnalités principale
@@ -70,7 +70,7 @@ Malgré des mois passés à débugger l'application, elle n'a jamais été suffi
 ---
 /Etude technique/Critères de choix
 
-## Critères de choix de la technologie
+### Critères de choix de la technologie
 
 - Simplicité de développement
 - Maintenance facile du code
@@ -80,7 +80,7 @@ Malgré des mois passés à débugger l'application, elle n'a jamais été suffi
 ---
 /Etude technique/Les alternatives
 
-## Alternatives techniques
+### Alternatives techniques
 
 L'existant a été développé en Java avec utilisation des NIO non bloquantes. Les alternatives envisagées ont été les suivantes :
 
@@ -92,7 +92,7 @@ Les deux POCs ont été developpés en parallèle en 10 jours environ
 ---
 /Etude technique/Résultats
 
-## Les résultats des POCS
+### Les résultats des POCS
 
 - Nombre de lignes de code comparable
 - Complexité comparable avec un léger avantage à Go
@@ -103,14 +103,14 @@ Mesure du nombre du nb de requêtes par seconde et du temps moyen de traitement 
 ---
 /Etude technique/Nombre de requêtes par seconde
 
-## Nombre de requêtes par seconde
+### Nombre de requêtes par seconde
 
 ![Nombre de requêtes par seconde](img/nombre-requetes.png)
 
 ---
 /Etude technique/Temps moyen par requête
 
-## Temps moyen par requête
+### Temps moyen par requête
 
 ![Temps moyen de réponse par requête](img/temps-reponse.png)
 
@@ -122,7 +122,7 @@ TODO
 ---
 /Etude technique/Résultats
 
-## Résultats
+### Résultats
 
 Il est resorti de l'étude technique que :
 
@@ -131,24 +131,23 @@ Il est resorti de l'étude technique que :
 - Les consommations RAM & CPU sont en faveur de Go
 
 ---
-#Java VS Golang
----
-#Survol du langage Go
+# Le langage Go
 ---
 /Le Go/Présentation Générale
 
 ### Go est un langage :
-## Open source
-## Compilé
-## Typage fort, statique et inféré
-## Orienté concurrence
-## Garbage collecté
-## Un peu objet, un peu fonctionnel
+
+- Open source
+- Compilé
+- Typage fort, statique et inféré
+- Orienté concurrence
+- Garbage collecté
+- Un peu objet, un peu fonctionnel
 
 ---
 /Le Go/Channels
 
-###Les channels
+### Les channels
 
 ```go
 package main
@@ -171,7 +170,7 @@ func main() {
 
 /Le Go/Les Goroutines
 
-###Les Goroutines
+### Les Goroutines
 
 ```go
 package main
@@ -200,7 +199,7 @@ func main() {
 ---
 /Le Go/Les Commandes Go
 
-###Les commandes Go
+### Les commandes Go
 
 - go build
 	- Compilation
@@ -221,12 +220,12 @@ func main() {
  
 - go tool, go vet, go errcheck...
  
-## Lancés par un gestionnaire de build ou un script shell
+### Lancés par un gestionnaire de build ou un script shell
 
 ---
 /Le Go/Les Exécutables
 
-###Les exécutables
+### Les exécutables
 
 - Binaire sans dépendance dynamique
 
@@ -240,7 +239,7 @@ func main() {
 ---
 /Le Go/Environnements
 
-###L'environnement de développement
+### L'environnement de développement
 
 - go code
 
@@ -259,7 +258,7 @@ func main() {
 ---
 /Bonnes surprises/Montée en compétence
 
-###Montée en compétence rapide
+### Montée en compétence rapide
 
 - Courbe d'apprentissage douce
 
@@ -279,7 +278,7 @@ func main() {
 ---
 /Bonnes surprises/Qualité des APIs
 
-###Qualité des API
+### Qualité des API
 
 ```go
 package main
@@ -310,7 +309,7 @@ http://play.golang.org/p/VPwJf7DuUo
 ---
 /Bonnes surprises/Monitoring
 
-###Monitoring
+### Monitoring
 
 - Utilisation du package [pprof](http://golang.org/pkg/net/http/pprof/)
 
@@ -329,7 +328,7 @@ Par exemple, on pourra ainsi à tout instant afficher l'état de toutes les goro
 ---
 /Bonnes surprises/API de tests
 
-### L'API de tests
+###  L'API de tests
 
 Cette API est tout à fait comparable à un JUnit :
 
