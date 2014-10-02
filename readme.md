@@ -7,11 +7,11 @@
 ---
 /Qui sommes nous ?/L'équipe
 
-- #Michel Casabianca
- 
-- #Benjamin Chenebault
- 
-- #Jacques Antoine Massé
+L'équipe des développeurs ayant participé au projet est constituée de :
+
+- Michel Casabianca
+- Benjamin Chenebault
+- Jacques Antoine Massé
 ---
 /Qui sommes nous ?/La plateform XMS
 
@@ -20,16 +20,12 @@
 SCHEMA SIMPLE ICI
 
 - 30 applis en production
-
 - Langages Java, C & Python
-
 - 6 dev, 3 ops   
-
 - Plusieurs centaines de clients
-
 - 900 millions de sms/an
-
 - 23 millions d'€ de CA
+
 ---
 /Qui sommes nous ?/Le projet SGS-enabler
 
@@ -39,7 +35,7 @@ SCHEMA ICI
 ---
 /Qui sommes nous ?/Soucis de maintenance
 
-###Maintenance très complexe et couteuse
+### Maintenance très complexe et coûteuse
 
 - Développé par un grand nombre de personnes
 - Agrégat de design patterns : Observer, Factory, Object pool, Composite
@@ -48,55 +44,92 @@ SCHEMA ICI
 - Problématiques d'accès concurrent réglés à coups de ConcurrentHashMap, de ScheduledThreadPoolExecutor noyés dans des blocs synchronisés
 - Monitorées à partir beans exposés en JMX
 ---
+
+/Qui sommes nous ?/Conclusion
+
+### Conclusion
+
+Malgré des mois passés à débugger l'application, elle n'a jamais été suffisament stable pour pouvoir y migrer tous nos clients
+
+**Il a donc été envisagé de réécrire l'application**
+---
+
 # Etude technique
 
-Réalisation d'un sous ensemble des fonctionnalités du projet dans le but de décider du choix de la techno.
-Périmètre réduit : Acceptation d'une requête HTTP, utilisation de lib XML, authentification par IP, requêtage HTTP, ouverture et envoie de données en TCP. => FAIRE SCHEMA SIMPLE
+---
+/Etude technique/Périmètre
+
+## Le périmètre de l'étude technique
+
+- Un seul connecteur (frontal HTTP)
+- Fonctionnalités principale
+  - Parsing XML
+  - Authentification par IP
+  - Appel d'un serveur par TCP
 
 ---
-# Critères de choix de la technologie
+/Etude technique/Critères de choix
 
-Performances
-Simplicité de développement et de lecture de code
-Consommation ressources CPU/mémoire
+## Critères de choix de la technologie
 
----
-Les alternatives
-
-Développement en Java avec utilisation d'IO synchrones/multithread (VS NIO dans implémentation legacy)
-Développement en Go avec l'utilisation des channels et des go routines
-
-Réalisation des 2 POCs en parallèle sur 10 jours de développement.
+- Simplicité de développement
+- Maintenance facile du code
+- Performances au runtime
+- Consommation ressources CPU/mémoire
 
 ---
-Les résultats des POCS
+/Etude technique/Les alternatives
 
-Nombre de lignes de code comparable
-Complexité comparable avec un léger avantage à Go
-Protocole de test : Test de montée en charge et de vieillissement de l'application
+## Alternatives techniques
+
+L'existant a été développé en Java avec utilisation des NIO non bloquantes. Les alternatives envisagées ont été les suivantes :
+
+- Java avec utilisation d'IO synchrones/multithread
+- Go avec utilisation des channels et de goroutines
+
+Les deux POCs ont été developpés en parallèle en 10 jours environ
+
+---
+/Etude technique/Résultats
+
+## Les résultats des POCS
+
+- Nombre de lignes de code comparable
+- Complexité comparable avec un léger avantage à Go
+- Tests en charge en faveur de Go (10% environ)
+
 Mesure du nombre du nb de requêtes par seconde et du temps moyen de traitement d'une requête
 
 ---
-Les résultats des POCS
+/Etude technique/Nombre de requêtes par seconde
 
-LES GRAPHES NB REQUETE/SEC ICI
+## Nombre de requêtes par seconde
 
----
-Les résultats des POCS
-
-LES GRAPHES temps moyen par requete ICI
+![Nombre de requêtes par seconde](img/nombre-requetes.png)
 
 ---
-Les résultats des POCS
+/Etude technique/Temps moyen par requête
 
-LES GRAPHES RAM ET CPU ICI
+## Temps moyen par requête
+
+![Temps moyen de réponse par requête](img/temps-reponse.png)
 
 ---
-Conclusion de l'étude technique
+/Etude technique/RAM et CPU
 
-Architecture du programme en Go simplifiée
-Les performances en Go sont meilleures d'environ 10%
-Consommation RAM/CPU en faveur de Go
+TODO
+
+---
+/Etude technique/Résultats
+
+## Résultats
+
+Il est resorti de l'étude technique que :
+
+- L'architecture en Go est plus simple
+- Les performances du Go sont légèrement meilleures (d'environ 10%)
+- Les consommations RAM & CPU sont en faveur de Go
+
 ---
 #Java VS Golang
 ---
@@ -191,7 +224,6 @@ func main() {
 ## Lancés par un gestionnaire de build ou un script shell
 
 ---
-
 /Le Go/Les Exécutables
 
 ###Les exécutables
@@ -206,7 +238,6 @@ func main() {
 	- FreeBSD et Linux 32/64 sur x86 et ARM, Windows, MacOS,…
 
 ---
-
 /Le Go/Environnements
 
 ###L'environnement de développement
@@ -298,7 +329,28 @@ Par exemple, on pourra ainsi à tout instant afficher l'état de toutes les goro
 ---
 /Bonnes surprises/API de tests
 
-###L'API de tests
+### L'API de tests
+
+Cette API est tout à fait comparable à un JUnit :
+
+```go
+package main
+
+import "testing"
+
+func Add(x, y int) int {
+    return x+y
+}
+
+func TestAdd(t *testing.T) {
+    if Add(1, 2) != 3 {
+        t.Error("Bad luck!")
+    }
+}
+```
+
+- Elle est plus simple (pas de `assert`)
+- Elle dispose d'outil pour lancer les tests d'un package
 
 - Utilisation du package [testing](http://golang.org/pkg/testing/)
 
@@ -322,20 +374,28 @@ func TestFunctionTralala(t *testing.T) {
 
 Simplissime mais efficace
 ---
-/Bonnes surprises/go test -race
+/Bonnes surprises/Accès concurrents
 
-L'option `-race` détecte les risques d'interblocage de l'application
-- On peut l'appliquer pour les tests
-- Mais aussi au runtime (mais consommateur de ressources)
+### Accès concurrents
+
+Il est possible de lancer les tests unitaires avec l'option `-race`. Go est alors capable de détecter les acceès concurrents à la mémoire.
+
+Mais il est aussi possible d'appliquer cette option à la compilation pour détecter les accès concurrents au runtime. Ceci peut être utile si la couverture de test est faible, mais attention aux performances.
 
 ---
 /Bonnes surprises/Stabilité de l'application
 
-Pas de risque de SegFault ni de core dump.
-Du à l'absence d'arithmétique de pointeurs
+### Stabilité de l'application
+
+Au cours de nos développements et de nos tests de charge, nous n'avons jamais vu planter notre logiciel :
+
+- Pas de SegFault ni de core dump.
+- Parceque pas d'arithmétique de pointeurs
 
 ---
 /Bonnes surprises/Support et communauté
+
+### Support et communauté
 
 - Bonne documentation des APIs
 - Code source disponible 
@@ -344,24 +404,75 @@ Du à l'absence d'arithmétique de pointeurs
 - Et super mascotte ;)
 
 ---
-/Bonnes surprises/Open source et gratuit
+/Bonnes surprises/Open source
 
-Code source très digeste contrairement aux classes du JDK
+### Open source
+
+Google a joué pleinement le jeu de l'Open Source :
+
+- La licence du logiciel est très ouverte (de type BSD)
+- Code source très clair et facilement modifiable
+- Développement dynamique
 
 ---
-/Les ecueils/Les Erreurs
+/Les ecueils/Gestion des Erreurs
 
-###La gestion des erreurs est rébarbative
+### La gestion des erreurs est rébarbative
+
+Source Go typique :
+
+```go
+f, err := os.Open("filename.ext")
+if err != nil {
+    log.Fatal(err)
+}
+```
+
+Cette gestion des erreurs :
+
+- Est répétitive
+- On ne peut gérer des erreurs *en bloc*
+- On ne peut typer les erreurs
+
+Il est possible de lancer des *paniques* :
+
+- Elles sont propagées
+- Peuvent être interceptées
+- Ce ne sont cependant pas des exceptions
 
 ---
 /Les ecueils/API de logs
 
-###API de Logs
+### API de Logs
+
+L'API de logs est assez critiquée car elle :
+
+- Ne gère pas des niveaux de logs
+- Ne gère pas des fichiers de configuration
+- Doit donc être configurée dans le code
 
 ---
 /Les ecueils/Certificats
 
-###Certificats
+### Certificats
+
+Nous avons rencontré des difficultés pour la gestion des certificats :
+
+- Des certificats générés sans l'option XXX ne peuvent servir à authentifier un client
+- L'algorithme MD5 n'est pas supporté pour la signature de certificats
+
+Si tous ces choix sont probablement pertinents, ils peuvent poser des problèmes avec l'existant
+
+TODO : vérifier les options exactes
+
+---
+/Les ecueils/Gestion des encodages
+
+### Gestion des encodages
+
+Seul l'*UTF-8* et l'*UTF-16* sont supportés.
+
+Nous sommes tous d'accord que ce choix est évident, cependant cela peut rendre difficile la gestion de l'existant.
 
 ---
 /Les ecueils/Vendorisation
@@ -387,26 +498,36 @@ commit = "23d36c08ab90f4957ae8e7d781907c368f5454dd"
 ```
 
 ---
-Retour sur les performances et la maintenabilité.
+# Retour sur les performances et la maintenabilité.
 ---
-/Performances/Développement
+/Performances/Poste de Développement
+
+### Poste de Développement
 
 - Affranchissement des limitations réseau
 - Mocks plus performants qu'implémentations réelles
 
-254 req./s pour la version en GO
-139 req./s pour la version en Java
+Les résultats sont les suivants :
+
+- 254 req./s pour la version en GO
+- 139 req./s pour la version en Java
 
 ---
 /Performances/Préproduction
 
+### Préproduction
+
 - Limité par les performances des applications connexes
 
-30 req./s pour la version en GO
-30 req./s pour la version en Java (avec drop de paquets)
+Les résultats sont les suivants :
+
+- 30 req./s pour la version en GO
+- 30 req./s pour la version en Java (avec drop de paquets)
 
 ---
-RAM et CPU
+/Performances/RAM & CPU
+
+### RAM et CPU
 
 - Environnement de préproduction
 - A charge égale
@@ -414,7 +535,9 @@ RAM et CPU
 - Go :   2% CPU,  1.2% RAM
 
 --- 
-/Maintenabilité
+/Performances/Maintenabilité
+
+### Maintenabilité
 
 - Syntaxe plus simple
 - Apis plus accessibles
@@ -422,7 +545,9 @@ RAM et CPU
 - Pas de patterns
  
 ---
-/Outils de monitoring
+/Performances/Outils de monitoring
+
+### Outils de monotoring
 
 - Monitoring via package pprof
 - Pas d'overhead au runtime, utilisé en production
@@ -432,7 +557,11 @@ RAM et CPU
 IMAGE HOBBIT
 
 ---
-/Conclusion
+# Conclusion
+
+Expérience concluante
+
+Projet en production
 
 - Un langage syntaxiquement et conceptuellement simple 
 - Adapté pour des applications pour lesquelles la performance est un enjeu
