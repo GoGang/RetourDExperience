@@ -32,10 +32,9 @@ def process(page):
             previous = []
         if len(items) > 1:
             previous.append(items[1])
-        path = "## %s" % root
-        for prev in previous:
-            path += '\n### - %s' % prev
-        path += '\n'
+        path = "### %s" % root
+        for prev in previous[-6:]:
+            path += '\n#### - %s' % prev
         return PAGE % (path, '\n'.join(lines[1:]))
     else:
         return TITLE % '\n'.join(lines)
