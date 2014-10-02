@@ -236,12 +236,75 @@ func main() {
 
 http://play.golang.org/p/VPwJf7DuUo
 
+---
+
+/Les bonnes surprises/Numéro 5
+###Monitoring
+
+- Existence du package pprof qui se bind à un serveur http
+
+- Fournit un heap profil 
+
+go tool pprof http://localhost:6060/debug/pprof/heap
+
+- 30-second CPU profile
+
+go tool pprof http://localhost:6060/debug/pprof/profile
+
+- Goroutine blocking profile
+
+go tool pprof http://localhost:6060/debug/pprof/block
+
+
+
+On peut laisser un production le serveur HTTP permettant de monitorer le code. Par exemple, on pourra à tout instant afficher l'état de toutes les goroutines.
 
 ---
 
+/Les bonnes surprises/Numéro 6
+###L'API de tests
+Simplissime mais efficace
 
+---
 
+/Les ecueils/Numéro 1
+###La gestion des erreurs peut sembler réberbatifs
 
+---
+
+/Les ecueils/Numéro 2
+###Logging
+
+---
+
+/Les ecueils/Numéro 3
+###Certificats
+
+---
+
+/Les ecueils/Numéro 4
+###La vendorisation
+
+- Absence volontaire de package manager natif
+
+- go get clone le last commit des repo GitHub, Bitbucket, Google code
+
+- "There is no need for a central archive of every version of every Go library ever released. Dependencies may move or disappear in the world outside your project. Versioning is a source of significant complexity, especially in large code bases" (Golang FAQ)
+
+- Package managers développé par la communauté : gopack, godep, GoManager, dondur, 
+
+```toml
+[deps.memcache]
+import = "github.com/bradfitz/gomemcache/memcache"
+tag = "1.2"
+
+[deps.mux]
+import = "github.com/gorilla/mux"
+commit = "23d36c08ab90f4957ae8e7d781907c368f5454dd"
+...
+```
+
+---
 
 
 
