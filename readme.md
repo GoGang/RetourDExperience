@@ -10,25 +10,25 @@
 L'équipe des développeurs ayant participé au projet est constituée de :
 
 - ###Michel Casabianca
-`michel.casabianca@gmail.com`
+`michel.casabianca@orange.com`
 - ###Benjamin Chenebault
-`benjamin.chenebault@gmail.com`
+`benjamin.chenebault@orange.com`
 - ###Jacques Antoine Massé
-`ja.masse@gmail.com`
+`ja.masse@orange.com`
 
 ---
 /Qui sommes nous ?/La plate-forme XMS (B)
 
-### Plate-forme d'envoi et réception SMS/MMS entre des éditeurs de service et des usagers mobile 
+### Plate-forme d'envoi et réception SMS/MMS 
+#### Entre des éditeurs de services et des usagers mobile
 
 ![Bordel ya pas d'image](img/xms.jpg)
 
-- 30 applis en production
+- ~ 30 applis en production
 - Langages Java, C & Python
 - 6 dev, 3 ops   
 - Plusieurs centaines de clients
 - 900 millions de sms/an
-- 23 millions d'€ de CA
 
 ---
 /Qui sommes nous ?/Le projet SGS-enabler (B)
@@ -38,8 +38,11 @@ L'équipe des développeurs ayant participé au projet est constituée de :
 ![Bordel ya pas d'image](img/sgsenabler.jpg)
 
 - Module d'authentification
+
 - Routeur
+
 - Load balancer
+
 - Serveur TCP & HTTP
 
 ---
@@ -53,9 +56,9 @@ L'équipe des développeurs ayant participé au projet est constituée de :
 
 - Très peu, voire aucune documentation
 
-- Beaucoup de problématiques réseau
+- Beaucoup de problématiques réseaux
 
-- Problématiques d'accès concurrent réglés à coups de ConcurrentHashMap, de ScheduledThreadPoolExecutor noyés dans des blocs synchronisés
+- Problématiques d'accès concurrents réglés à coups de ConcurrentHashMap, de ScheduledThreadPoolExecutor noyés dans des blocs synchronisés
 
 - Monitorées à partir beans exposés en JMX
 
@@ -65,7 +68,7 @@ L'équipe des développeurs ayant participé au projet est constituée de :
 
 ### Conclusion
 
-Malgré des mois passés à débugger l'application, elle n'a jamais été suffisament stable pour pouvoir y migrer tous nos clients
+Malgré des mois passés à débugger l'application, elle n'a jamais été suffisamment stable pour pouvoir y migrer tous nos clients
 
 **Il a donc été envisagé de réécrire l'application**
 ---
@@ -79,9 +82,12 @@ Malgré des mois passés à débugger l'application, elle n'a jamais été suffi
 
 - Un seul connecteur (frontal HTTP)
 
-- Fonctionnalités principale
+- Fonctionnalités principales
+
   - Parsing XML
+
   - Authentification par IP
+
   - Appel d'un serveur par TCP
 
 ---
@@ -350,12 +356,12 @@ Seul l'*UTF-8* et l'*UTF-16* sont supportés.
 Nous sommes tous d'accord que ce choix est évident, cependant cela peut rendre difficile la gestion de l'existant.
 
 ---
-/Les ecueils/Vendorisation (B)
-###La vendorisation
+/Les ecueils/Versioning (B)
+###Le versioning
 
 - Absence volontaire de package manager natif
 
-- go get clone le last commit des repo GitHub, Bitbucket, Google code
+- `go get` clone le last commit des repo GitHub, Bitbucket, Google code
 
 - "There is no need for a central archive of every version of every Go library ever released. Dependencies may move or disappear in the world outside your project. Versioning is a source of significant complexity, especially in large code bases" (Golang FAQ)
 
@@ -499,7 +505,7 @@ Au cours de nos développements et de nos tests de charge, nous n'avons jamais v
 
 - Code source disponible 
 
-- Existende de nombreuses lib sur Github
+- Existence de nombreuses bibliothèques libres
 
 - Nombreux blogs persos et évènements
 
