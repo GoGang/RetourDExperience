@@ -271,10 +271,6 @@ func main() {
 
 ---
 
-# Ecueils et bonnes surprises
-
----
-
 # Les écueils
 
 ---
