@@ -27,7 +27,7 @@ def process(page):
         lines[-1] = FOOTNOTE % lines[-1][1:]
     if lines[0].startswith('/'):
         items = lines[0].split('/')[1:]
-        if items[0] != root or len(previous) == 4:
+        if items[0] != root or len(previous) == 5:
             root = items[0]
             previous = []
         if len(items) > 1:
