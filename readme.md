@@ -10,16 +10,16 @@
 L'équipe des développeurs ayant participé au projet est constituée de :
 
 - ###Michel Casabianca
-`michel.casabianca@gmail.com`
+`michel.casabianca@orange.com`
 - ###Benjamin Chenebault
-`benjamin.chenebault@gmail.com`
+`benjamin.chenebault@orange.com`
 - ###Jacques Antoine Massé
-`ja.masse@gmail.com`
+`ja.masse@orange.com`
 
 ---
 /Qui sommes nous ?/La plate-forme XMS (B)
 
-### Plate-forme d'envoi et réception SMS/MMS entre des éditeurs de service et des usagers mobile 
+### Plate-forme d'envoi et réception SMS/MMS entre des éditeurs de service et des usagers mobiles
 
 ![Bordel ya pas d'image](img/xms.jpg)
 
@@ -122,8 +122,10 @@ Les deux POCs ont été developpés en parallèle en 10 jours environ
 
 - Tests en charge en faveur de Go (10% environ)
 
-Mesures effectuées : 
+Mesures effectuées :
+
 - Nb de requêtes par seconde
+
 - Temps moyen de traitement d'une requête
 
 ---
@@ -141,24 +143,13 @@ Mesures effectuées :
 ![Temps moyen de réponse par requête](img/temps-reponse.png)
 
 ---
-/Etude technique/Résultats (M)
-
-### Résultats
-
-Il est resorti de l'étude technique que :
-
-- L'architecture en Go est plus simple
-
-- Les performances du Go sont légèrement meilleures (d'environ 10%)
-
-- Les consommations RAM & CPU sont en faveur de Go
-
----
 # Le langage Go
 ---
 /Le Go/Présentation Générale (JA)
 
 ### Go est un langage :
+
+- Créé par Google en 2007
 
 - Procédural, un peu objet, un peu fonctionnel
  
@@ -254,7 +245,8 @@ func main() {
 - Binaire sans dépendance dynamique
 
 - Volumineux 
-	- "Hello world" ~ 1Mo 
+	- "Hello world" ~ 1 Mo
+    - Notre application ~ 9 Mo
 	- Embarque toutes les bibliothèques utilisées
 
 - Plate Formes supportées : 
@@ -313,7 +305,7 @@ Il est possible de lancer des *paniques* :
 - Ce ne sont cependant pas des exceptions
 
 ---
-/Les ecueils/APIs simplistes (M)
+/Les écueils/APIs simplistes (M)
 
 ### APIs simplistes
 
@@ -328,7 +320,7 @@ L'API de logs est assez critiquée car elle :
 L'API de parsing des options en ligne de commande ne respecte par les standards Unix.
 
 ---
-/Les ecueils/Certificats (M)
+/Les écueils/Certificats (M)
 
 ### Certificats
 
@@ -341,7 +333,7 @@ Nous avons rencontré des difficultés pour la gestion des certificats :
 Si tous ces choix sont probablement pertinents, ils peuvent poser des problèmes avec l'existant
 
 ---
-/Les ecueils/Gestion des encodages (M)
+/Les écueils/Gestion des encodages (M)
 
 ### Gestion des encodages
 
@@ -350,7 +342,7 @@ Seul l'*UTF-8* et l'*UTF-16* sont supportés.
 Nous sommes tous d'accord que ce choix est évident, cependant cela peut rendre difficile la gestion de l'existant.
 
 ---
-/Les ecueils/Vendorisation (B)
+/Les écueils/Vendorisation (B)
 ###La vendorisation
 
 - Absence volontaire de package manager natif
@@ -499,11 +491,13 @@ Au cours de nos développements et de nos tests de charge, nous n'avons jamais v
 
 - Code source disponible 
 
-- Existende de nombreuses lib sur Github
+- Existense de nombreuses lib sur Github
 
 - Nombreux blogs persos et évènements
 
-- Et super mascotte ;)
+- Et super mascotte
+
+![Gopher](img/gopher.png)
 
 ---
 /Bonnes surprises/Open source (JA)
@@ -578,13 +572,13 @@ Les résultats sont les suivants :
 
 Expérience concluante
 
-Projet en production
+Projet en préproduction
 
 Un langage syntaxiquement et conceptuellement simple 
 
 Adapté pour des applications pour lesquelles la performance est un enjeu
 
-Outillage très simple à utilisé
+Outillage très simple à utiliser
 
 Outils de profiling
 
