@@ -514,7 +514,7 @@ Google a joué pleinement le jeu de l'Open Source :
 
 
 ---
-# Retour sur les performances et la maintenabilité.
+# Retour sur les performances et la maintenabilité
 ---
 /Performances/Poste de Développement (M)
 
