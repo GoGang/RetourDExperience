@@ -33,9 +33,11 @@ L'équipe des développeurs ayant participé au projet est constituée de :
 ---
 /Qui sommes nous ?/Le projet SGS-enabler (B)
 
-### Principal frontal d'accès à la plateforme XMS
+### Le frontal d'accès à la plateforme XMS
 
 ![Bordel ya pas d'image](img/sgsenabler.jpg)
+
+- Serveur TCP & HTTP
 
 - Module d'authentification
 
@@ -43,7 +45,6 @@ L'équipe des développeurs ayant participé au projet est constituée de :
 
 - Load balancer
 
-- Serveur TCP & HTTP
 
 ---
 /Qui sommes nous ?/Soucis de maintenance (B)
@@ -52,15 +53,15 @@ L'équipe des développeurs ayant participé au projet est constituée de :
 
 - Développé par un grand nombre de personnes
 
-- Agrégat de design patterns : Observer, Factory, Object pool, Composite
+- Agrégat de design patterns : Observer, Factory, Object pool, Composite, [...]
 
 - Très peu, voire aucune documentation
 
 - Beaucoup de problématiques réseaux
 
-- Problématiques d'accès concurrents réglés à coups de ConcurrentHashMap, de ScheduledThreadPoolExecutor noyés dans des blocs synchronisés
+- Problématiques d'accès concurrents réglés avec les classes de `java.util.concurrent`, et des blocs synchronisés
 
-- Monitorées à partir beans exposés en JMX
+- Monitoré à partir beans exposés en JMX
 
 ---
 
@@ -74,6 +75,7 @@ Malgré des mois passés à débugger l'application, elle n'a jamais été suffi
 ---
 
 # Etude technique
+[Le choix de la technologie]
 
 ---
 /Etude technique/Périmètre (M)
@@ -108,14 +110,14 @@ Malgré des mois passés à débugger l'application, elle n'a jamais été suffi
 
 ### Alternatives techniques
 
-L'existant a été développé en Java avec utilisation des NIO non bloquantes. 
+L'existant a été développé avec l'API Non-blocking I/O du JDK. 
 
-Les alternatives envisagées ont été les suivantes :
+Les cibles envisagées ont été les suivantes :
 
-- Java avec utilisation d'IO synchrones/multithread
+- Java avec utilisation d'IO synchrones
 - Go avec utilisation des channels et de goroutines
 
-Les deux POCs ont été developpés en parallèle en 10 jours environ
+Les deux POCs ont été développés en parallèle en 10 jours environ
 
 ---
 /Etude technique/Résultats (M)
@@ -124,11 +126,11 @@ Les deux POCs ont été developpés en parallèle en 10 jours environ
 
 - Nombre de lignes de code comparable
 
-- Moins complexe en Go
+- Architecture moins complexe en Go
 
 - Tests en charge en faveur de Go (10% environ)
 
-Mesures effectuées :
+####Performances mesurées
 
 - Nb de requêtes par seconde
 
@@ -341,7 +343,7 @@ Si tous ces choix sont probablement pertinents, ils peuvent poser des problèmes
 
 Seul l'*UTF-8* et l'*UTF-16* sont supportés.
 
-Nous sommes tous d'accord que ce choix est évident, cependant cela peut rendre difficile la gestion de l'existant.
+Ce choix est évident, mais peut rendre difficile la gestion de l'existant.
 
 ---
 /Les écueils/Versioning (B)
@@ -349,7 +351,7 @@ Nous sommes tous d'accord que ce choix est évident, cependant cela peut rendre 
 
 - Absence volontaire de package manager natif
 
-- `go get` clone le last commit des repo GitHub, Bitbucket, Google code
+- `go get` clone le dernier commit des repo GitHub, Bitbucket, Google code
 
 - "There is no need for a central archive of every version of every Go library ever released. Dependencies may move or disappear in the world outside your project. Versioning is a source of significant complexity, especially in large code bases" (Golang FAQ)
 
@@ -374,8 +376,6 @@ commit = "23d36c08ab90f4957ae8e7d781907c368f5454dd"
 /Bonnes surprises/Montée en compétence (JA)
 
 ### Montée en compétence rapide
-
-- Courbe d'apprentissage douce
 
 - La syntaxe est simple 
 	- "Langage procédural à accolades"
@@ -458,7 +458,7 @@ import "testing"
 
 func TestFunctionTralala(t *testing.T) {
     if "tralala" != "tralala" {
-        t.Fail()
+        t.Error()
     }
 }
 ```
@@ -469,16 +469,20 @@ Simplissime mais efficace
 
 ### Accès concurrents
 
-Il est possible de lancer les tests unitaires avec l'option `-race`. Go est alors capable de détecter les acceès concurrents à la mémoire.
+-Possibilité de lancer les tests unitaires avec l'option `-race`. 
 
-Mais il est aussi possible d'appliquer cette option à la compilation pour détecter les accès concurrents au runtime. Ceci peut être utile si la couverture de test est faible, mais attention aux performances.
+Go est alors capable de détecter les accès concurrents à la mémoire.
+
+-Egalement possible d'appliquer cette option à la compilation pour détecter les accès concurrents au runtime. 
+
+Ceci peut être utile si la couverture de test est faible, mais attention aux performances.
 
 ---
 /Bonnes surprises/Stabilité de l'application (M)
 
 ### Stabilité de l'application
 
-Au cours de nos développements et de nos tests de charge, nous n'avons jamais vu planter notre logiciel :
+Au cours de nos développements et de nos tests de charge, nous n'avons jamais vu planter notre logiciel
 
 - Pas de SegFault ni de core dump.
 
@@ -508,7 +512,7 @@ Au cours de nos développements et de nos tests de charge, nous n'avons jamais v
 
 Google a joué pleinement le jeu de l'Open Source :
 
-- La licence du logiciel est très ouverte (de type BSD)
+- La licence du logiciel est très ouverte (BSD)
 
 - Code source très clair et facilement modifiable
 
@@ -516,7 +520,7 @@ Google a joué pleinement le jeu de l'Open Source :
 
 
 ---
-# Retour sur les performances et la maintenabilité
+# Retour sur les performances
 ---
 /Performances/Poste de Développement (M)
 
@@ -538,7 +542,7 @@ Les résultats sont les suivants :
 
 - Limité par les performances des applications connexes
 
-Les résultats sont les suivants :
+Les résultats sont les suivants
 
 - 30 req./s pour la version en GO
 - 30 req./s pour la version en Java (avec drop de paquets)
@@ -556,19 +560,6 @@ Les résultats sont les suivants :
 
 - Go :   2% CPU,  1.2% RAM
 
---- 
-/Performances/Maintenabilité (M)
-
-### Maintenabilité
-
-- Syntaxe plus simple
-
-- Apis plus accessibles
-
-- Pas de hiérarchie d'objets
-
-- Pas de patterns
- 
 ---
 # Conclusion (B)
 
