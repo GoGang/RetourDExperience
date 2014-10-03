@@ -1,7 +1,7 @@
 ---
 # Ready to Go ?
 [Retour d'expérience sur un projet en Golang]
-\[goo.gl/OXS5py](http://goo.gl/OXS5py)
+\[goo.gl/OXS5py](http://goo.gl/TpHJLq)
 ---
 # This is where it all began
 ---
