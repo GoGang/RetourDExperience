@@ -570,21 +570,6 @@ Les résultats sont les suivants :
 - Pas de patterns
  
 ---
-/Performances/Outils de monitoring (B)
-
-### Outils de monotoring
-
-- Monitoring via package pprof
-
-- Pas d'overhead au runtime, utilisé en production
-
-- Script de supervision pour surveiller les goroutines
-
-- Temps de contention des goroutines
-
-![hobbit](img/hobbit.png)
-
----
 # Conclusion (B)
 
 Expérience concluante
