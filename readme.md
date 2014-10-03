@@ -160,17 +160,17 @@ Il est resorti de l'étude technique que :
 
 ### Go est un langage :
 
-- Open source
+- Procédural, un peu objet, un peu fonctionnel
+ 
+- Garbage collecté
 
 - Compilé
 
-- Typage fort, statique et inféré
+- Typage fort, statique
 
 - Orienté concurrence
 
-- Garbage collecté
-
-- Un peu objet, un peu fonctionnel
+- Open source
 
 ---
 /Le Go/Channels (JA)
@@ -208,7 +208,9 @@ func producer(c chan string) {
 }
 
 func consumer(c chan string) {
-	println(<-c)
+	for {
+		println(<-c)
+	}
 }
 
 func main() {
@@ -218,8 +220,9 @@ func main() {
 }
 ```
 
-- Primitives du langage
-- Très légères en terme de ressources (~4ko)
+- Primitive du langage
+- Très légères (~4ko)
+- Task switching peu significatif
 - Multiplexé sur un ou plusieurs threads de l'OS
 
 <http://play.golang.org/p/y6W8I8lJYA>
@@ -236,8 +239,9 @@ func main() {
 	- Compilation + exécution
 
 - go test
-	- Tous les tests, 
-	- Un test particulier
+ 
+- go dep
+
 
 [...]
  
@@ -263,15 +267,15 @@ func main() {
 
 - go code
 
-- Existence de modes pour emacs et vi
+- Existence de modes pour emacs et vi :
 	- go-vim
 	- go-snippets, autocomplete, flycheck, etc.
-	
-- Plugins Eclise, IntelliJ, etc.
 	
 - Liteide
 	- Open Source
 	- Ecrit en Go
+
+- Plugins Eclipse, IntelliJ, etc.
 
 ---
 
@@ -283,7 +287,7 @@ func main() {
 
 ---
 
-/Les ecueils/Gestion des Erreurs (M)
+/Les écueils/Gestion des Erreurs (M)
 
 ### La gestion des erreurs est rébarbative
 
@@ -384,15 +388,15 @@ commit = "23d36c08ab90f4957ae8e7d781907c368f5454dd"
 - Outillage efficace
 
 - Goroutine et channels
-	- Asynchronsime
 	- Patterns de concurrence
 
 - Features avancées
 	- Composition de structures
-	- Programmation "fonctionnelles"
-	- Utilisation d'interfaces
+	- Programmation "fonctionnelle"
+	- Polymorphisme
 
 ---
+
 /Bonnes surprises/Qualité des APIs (JA)
 
 ### Qualité des API
