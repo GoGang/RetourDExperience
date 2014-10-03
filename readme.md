@@ -375,8 +375,6 @@ commit = "23d36c08ab90f4957ae8e7d781907c368f5454dd"
 
 ### Montée en compétence rapide
 
-- Courbe d'apprentissage douce
-
 - La syntaxe est simple 
 	- "Langage procédural à accolades"
 - Outillage efficace
