@@ -5,6 +5,34 @@
 ---
 # This is where it all began
 ---
+/Qui sommes nous ?/Orange (B)
+
+![Groupe Orange](img/groupe-orange.jpg)
+
+Orange est le 3ème opérateur mobile et 1er fournisseur d’accès Internet ADSL en Europe, France Télécom compte parmi les leaders mondiaux des services de télécommunications aux entreprises multinationales.
+
+- 100 000 salariés
+- 7,4 millions de Livebox
+- 9 millions de clients équipés haut débit, soit 46,3% de part de marché Grand Public
+- 26,2 millions de clients mobiles dont 14,6 clients haut débit mobile
+- 7,2 millions de clients VOIP
+- 1200 boutiques France Télécom
+- 736 000 clients Orange TV
+- 380 000 clients ont signés pour la Fibre (644 000 foyers connectables)
+
+---
+/Qui sommes nous ?/OAB (B)
+
+### Orange Applications for Business
+
+Machine to Machine, Internet des objets, big data... Orange Business Services rassemble dans un même pôle ses expertises : Orange Applications for Business.
+
+![OAB](img/orange-oab.png)
+
+- 2400 collaborateurs (+200 recrutements par an)
+- Chiffre d’affaires de 300 millions d’euros en 2013 (sur un CA globale de 6,5 milliards d’euros réalisé l’a passé par OBS).
+
+---
 /Qui sommes nous ?/L'équipe (B)
 
 L'équipe des développeurs ayant participé au projet est constituée de :
@@ -14,7 +42,7 @@ L'équipe des développeurs ayant participé au projet est constituée de :
 - ###Benjamin Chenebault
 `benjamin.chenebault@orange.com`
 - ###Jacques Antoine Massé
-`ja.masse@orange.com`
+`jacquesantoine.masse@orange.com`
 
 ---
 /Qui sommes nous ?/La plate-forme XMS (B)
