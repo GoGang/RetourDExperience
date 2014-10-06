@@ -157,7 +157,8 @@ Les deux POCs ont été développés en parallèle en 10 jours environ
 
 ### Go est un langage :
 
-- Créé par Google en 2007
+- Créé par Google en 2007, v1.0 en mars 2012
+	- R.Pike, K.Thompson, J. Griesemer
 
 - Procédural, un peu objet, un peu fonctionnel
  
@@ -202,13 +203,24 @@ func main() {
 ```go
 package main
 
+import (
+	"time"
+)
+
 func producer(c chan string) {
-	c <- "hello"
+	// ... traitement de durée variable
+	c <- "résultat"
 }
 
 func consumer(c chan string) {
+	ticker := time.Tick(2 * time.Second)
 	for {
-		println(<-c)
+		select {
+		case val := <-c:
+			println(val)
+		case <-ticker:
+			println("Trop tard")
+		}
 	}
 }
 
@@ -217,8 +229,8 @@ func main() {
 	go consumer(c)
 	producer(c)
 }
-```
 
+```
 - Primitive du langage
 - Très légères (~4ko)
 - Task switching peu significatif
@@ -227,6 +239,7 @@ func main() {
 <http://play.golang.org/p/y6W8I8lJYA>
 
 ---
+
 /Le Go/Commandes Go (JA)
 
 ### Les commandes Go
@@ -241,11 +254,10 @@ func main() {
  
 - go dep
 
-
 [...]
- 
 
 ---
+
 /Le Go/Exécutables (JA)
 
 ### Les exécutables
@@ -253,7 +265,7 @@ func main() {
 - Binaire sans dépendance dynamique
 
 - Volumineux 
-	- "Hello world" ~ 1 Mo
+    - "Hello world" ~ 1 Mo
     - Notre application ~ 9 Mo
 	- Embarque toutes les bibliothèques utilisées
 
@@ -261,6 +273,7 @@ func main() {
 	- FreeBSD et Linux 32/64 sur x86 et ARM, Windows, MacOS,…
 
 ---
+
 /Le Go/Environnements (JA)
 
 ### L'environnement de développement
@@ -270,12 +283,14 @@ func main() {
 - Existence de modes pour emacs et vi :
 	- go-vim
 	- go-snippets, autocomplete, flycheck, etc.
-	
+
 - Liteide
 	- Open Source
 	- Ecrit en Go
 
-- Plugins Eclipse, IntelliJ, etc.
+- Plugins Eclipse et IntelliJ peu matures.
+
+- Navigation dans le source, renommage, code appelant, build/tests, etc.
 
 ---
 
@@ -395,31 +410,14 @@ commit = "23d36c08ab90f4957ae8e7d781907c368f5454dd"
 
 ### Qualité des API
 
-```go
-package main
+- Accessibles et compréhensibles
 
-import (
-	"fmt"
-	"io/ioutil"
-	"log"
-	"net/http"
-)
+- API Standard complète
+	-  compression, crypto, bases de données, encodage, html, io, log, net, reflection, testing, time, unsafe
 
-func main() {
-	res, err := http.Get("http://www.google.com/robots.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-	robots, err := ioutil.ReadAll(res.Body)
-	res.Body.Close()
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Printf("%s", robots)
-}
-```
+- Limite le recours aux API tierces 
 
-http://play.golang.org/p/VPwJf7DuUo
+- Styles de développement hétérogènes
 
 ---
 /Bonnes surprises/Monitoring (B)
@@ -489,9 +487,12 @@ Au cours de nos développements et de nos tests de charge, nous n'avons jamais v
 - Parceque pas d'arithmétique de pointeurs
 
 ---
+
 /Bonnes surprises/Support et communauté (JA)
 
 ### Support et communauté
+
+- go-nuts, stackoverflow, reddit, go newsletter, irc
 
 - Bonne documentation des APIs
 
@@ -501,11 +502,8 @@ Au cours de nos développements et de nos tests de charge, nous n'avons jamais v
 
 - Nombreux blogs persos et évènements
 
-- Et super mascotte
-
-![Gopher](img/gopher.png)
-
 ---
+
 /Bonnes surprises/Open source (JA)
 
 ### Open source
@@ -517,7 +515,6 @@ Google a joué pleinement le jeu de l'Open Source :
 - Code source très clair et facilement modifiable
 
 - Développement dynamique
-
 
 ---
 # Retour sur les performances
