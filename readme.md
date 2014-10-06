@@ -259,7 +259,7 @@ import (
 func producer(c chan int) {
 	for {
 		c <- 1
-		time.Sleep(1 * time.Millisecond)
+		time.Sleep(100 * time.Nanosecond)
 	}
 }
 
@@ -288,12 +288,14 @@ func consumer(c chan int) {
 func main() {
 	c := make(chan int)
 	go consumer(c)
+	go consumer(c)
+	go consumer(c)
 	producer(c)
 }
 
 ```
 
-http://play.golang.org/p/G9bkW2nMXg
+http://play.golang.org/p/kB04dmtTcE
 
 
 ---
