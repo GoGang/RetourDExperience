@@ -30,7 +30,7 @@ Machine to Machine, Internet des objets, big data... Orange Business Services ra
 ![OAB](img/orange-oab.png)
 
 - 2400 collaborateurs (+200 recrutements par an)
-- Chiffre d’affaires de 300 millions d’euros en 2013 (sur un CA globale de 6,5 milliards d’euros réalisé l’a passé par OBS).
+- Chiffre d’affaires de 300 millions d’euros en 2013 (sur un CA global de 6,5 milliards d’euros réalisé l’an passé par OBS).
 
 ---
 /Qui sommes nous ?/L'équipe (B)
