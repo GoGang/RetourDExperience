@@ -549,7 +549,7 @@ Au cours de nos développements et de nos tests de charge, nous n'avons jamais v
 
 - Les pointeurs existent
 
-- Mais pas d'arithmétique de pointeurs
+- Mais on ne peut les manipuler (pas d'arithmétique de pointeurs)
 
 ---
 
