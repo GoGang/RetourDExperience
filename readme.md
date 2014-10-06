@@ -620,7 +620,7 @@ Les résultats sont les suivants
 - Go :   2% CPU,  1.2% RAM
 
 ---
-# Conclusion (B)
+# Conclusion
 
 Expérience concluante
 
