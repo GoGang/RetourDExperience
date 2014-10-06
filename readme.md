@@ -18,7 +18,7 @@ Orange est le 3ème opérateur mobile et 1er fournisseur d’accès Internet ADS
 - 7,2 millions de clients VOIP
 - 1200 boutiques France Télécom
 - 736 000 clients Orange TV
-- 380 000 clients ont signés pour la Fibre (644 000 foyers connectables)
+- 380 000 clients ont signé pour la Fibre (644 000 foyers connectables)
 
 ---
 /Qui sommes nous ?/OAB (B)
