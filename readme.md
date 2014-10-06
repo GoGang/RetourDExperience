@@ -458,7 +458,7 @@ commit = "23d36c08ab90f4957ae8e7d781907c368f5454dd"
 	- "Langage procédural à accolades"
 - Outillage efficace
 
-- Goroutine et channels
+- Goroutines et channels
 	- Patterns de concurrence
 
 - Features avancées
