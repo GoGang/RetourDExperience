@@ -606,7 +606,7 @@ Limitations dues :
 
 - Au réseau
 
-- Aux performances des aitres applications
+- Aux performances des autres applications
 
 Les résultats sont les suivants :
 
