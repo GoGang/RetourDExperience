@@ -424,7 +424,8 @@ Ce choix est évident, mais peut rendre difficile la gestion de l'existant.
 
 ---
 /Les écueils/Versioning (B)
-###Le versioning
+
+### Le versioning
 
 - Absence volontaire de package manager natif
 
@@ -535,18 +536,20 @@ Go est alors capable de détecter les accès concurrents à la mémoire.
 
 - Il est également possible d'appliquer cette option à la compilation pour détecter les accès concurrents au runtime. 
 
-Ceci peut être utile si la couverture de test est faible, mais attention aux performances.
+Ceci peut être utile si la couverture de test est faible, mais attention aux performances !
 
 ---
 /Bonnes surprises/Stabilité de l'application (M)
 
 ### Stabilité de l'application
 
-Au cours de nos développements et de nos tests de charge, nous n'avons jamais vu planter notre logiciel
+Au cours de nos développements et de nos tests de charge, nous n'avons jamais vu planter notre logiciel.
 
-- Pas de SegFault ni de core dump.
+- Pas de SegFault ni de core dump
 
-- Parceque pas d'arithmétique de pointeurs
+- Les pointeurs existent
+
+- Mais pas d'arithmétique de pointeurs
 
 ---
 
