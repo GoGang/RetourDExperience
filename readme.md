@@ -37,12 +37,14 @@ Machine to Machine, Internet des objets, big data... Orange Business Services ra
 
 L'équipe des développeurs ayant participé au projet est constituée de :
 
-- ###Michel Casabianca
+- ### Michel Casabianca
 `michel.casabianca@orange.com`
-- ###Benjamin Chenebault
+- ### Benjamin Chenebault
 `benjamin.chenebault@orange.com`
-- ###Jacques Antoine Massé
+- ### Jacques Antoine Massé
 `jacquesantoine.masse@orange.com`
+- ### Sébastien Font
+`sebastien.font@orange.com`
 
 ---
 /Qui sommes nous ?/La plate-forme XMS (B)
@@ -218,7 +220,7 @@ func main() {
 
 <http://play.golang.org/p/Kq0Ih_NwIH>
 
-- Primitive du langage
+- Primitives du langage
 - File FIFO
 - Très largement utilisée pour gérer la concurrence et les attentes de thread
 
@@ -259,10 +261,10 @@ func main() {
 }
 
 ```
-- Primitive du langage
+- Primitives du langage
 - Très légères (~4ko)
 - Task switching peu significatif
-- Multiplexé sur un ou plusieurs threads de l'OS
+- Multiplexées sur un ou plusieurs threads de l'OS
 
 <http://play.golang.org/p/y6W8I8lJYA>
 
@@ -290,7 +292,7 @@ func main() {
 
 ### Les exécutables
 
-- Binaire sans dépendance dynamique
+- Binaires sans dépendance dynamique
 
 - Volumineux 
     - "Hello world" ~ 1 Mo
@@ -348,7 +350,7 @@ Cette gestion des erreurs :
 Il est possible de lancer des *paniques* :
 
 - Elles sont propagées
-- Peuvent être interceptées
+- Elles peuvent être interceptées
 - Ce ne sont cependant pas des exceptions
 
 ---
@@ -398,7 +400,7 @@ Ce choix est évident, mais peut rendre difficile la gestion de l'existant.
 
 - "There is no need for a central archive of every version of every Go library ever released. Dependencies may move or disappear in the world outside your project. Versioning is a source of significant complexity, especially in large code bases" (Golang FAQ)
 
-- Package managers développé par la communauté : gopack, godep, GoManager, dondur, 
+- Package managers développés par la communauté : gopack, godep, GoManager, dondur, 
 
 ```toml
 [deps.memcache]
