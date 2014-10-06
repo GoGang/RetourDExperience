@@ -602,12 +602,16 @@ Les résultats sont les suivants :
 
 ### Préproduction
 
-- Limité par les performances des applications connexes
+Limitations dues :
 
-Les résultats sont les suivants
+- Au réseau
+
+- Aux performances des aitres applications
+
+Les résultats sont les suivants :
 
 - 30 req./s pour la version en GO
-- 30 req./s pour la version en Java (avec drop de paquets)
+- 30 req./s pour la version en Java (avec perte de paquets)
 
 ---
 /Performances/RAM & CPU (M)
