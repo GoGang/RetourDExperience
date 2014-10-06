@@ -533,7 +533,7 @@ Simplissime mais efficace
 
 Go est alors capable de détecter les accès concurrents à la mémoire.
 
-- Egalement possible d'appliquer cette option à la compilation pour détecter les accès concurrents au runtime. 
+- Il est également possible d'appliquer cette option à la compilation pour détecter les accès concurrents au runtime. 
 
 Ceci peut être utile si la couverture de test est faible, mais attention aux performances.
 
