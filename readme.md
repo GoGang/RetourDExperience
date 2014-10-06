@@ -529,11 +529,11 @@ Simplissime mais efficace
 
 ### Accès concurrents
 
--Possibilité de lancer les tests unitaires avec l'option `-race`. 
+- Possibilité de lancer les tests unitaires avec l'option `-race`. 
 
 Go est alors capable de détecter les accès concurrents à la mémoire.
 
--Egalement possible d'appliquer cette option à la compilation pour détecter les accès concurrents au runtime. 
+- Egalement possible d'appliquer cette option à la compilation pour détecter les accès concurrents au runtime. 
 
 Ceci peut être utile si la couverture de test est faible, mais attention aux performances.
 
