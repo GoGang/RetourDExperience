@@ -554,11 +554,13 @@ Au cours de nos développements et de nos tests de charge, nous n'avons jamais v
 
 ### Support et communauté
 
+- Documentation du langage, des APIs
+
+- Blogs et publications de la core team
+
 - go-nuts, stackoverflow, reddit, go newsletter, irc
 
-- Bonne documentation des APIs
-
-- Nombreux blogs persos et évènements
+- Évènements et captation de conférences
 
 ---
 
