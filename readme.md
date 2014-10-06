@@ -229,6 +229,25 @@ func main() {
 /Le Go/Goroutines (JA)
 
 ### Les Goroutines
+- Exécution d'un appel de fonction en concurrence
+
+- Mot clé "go"
+
+- Primitive du langage
+
+- Faible occupation mémoire (~4ko/goroutine)
+
+- Task switching peu significatif
+
+- Multiplexé sur un ou plusieurs threads de l'OS
+
+- "select" permet de poller plusieurs channels
+
+---
+
+/Le Go/Exemple (JA)
+
+### Exemple
 
 ```go
 package main
@@ -237,36 +256,45 @@ import (
 	"time"
 )
 
-func producer(c chan string) {
-	// ... traitement de durée variable
-	c <- "résultat"
-}
-
-func consumer(c chan string) {
-	ticker := time.Tick(2 * time.Second)
+func producer(c chan int) {
 	for {
-		select {
-		case val := <-c:
-			println(val)
-		case <-ticker:
-			println("Trop tard")
-		}
+		c <- 1
+		time.Sleep(1 * time.Millisecond)
 	}
 }
 
+func consumer(c chan int) {
+	ticker := time.Tick(5 * time.Millisecond)
+	result := 0
+	for {
+		select {
+		case val := <-c:
+			result = result + val
+		case <-ticker:
+			println(result)
+			return
+		}
+	}
+}
+```
+---
+
+/Le Go/Exemple (JA)
+
+### Exemple
+
+```go
+
 func main() {
-	c := make(chan string)
+	c := make(chan int)
 	go consumer(c)
 	producer(c)
 }
 
 ```
-- Primitives du langage
-- Très légères (~4ko)
-- Task switching peu significatif
-- Multiplexées sur un ou plusieurs threads de l'OS
 
-<http://play.golang.org/p/y6W8I8lJYA>
+http://play.golang.org/p/G9bkW2nMXg
+
 
 ---
 
