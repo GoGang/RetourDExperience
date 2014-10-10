@@ -427,11 +427,9 @@ Ce choix est évident, mais peut rendre difficile la gestion de l'existant.
 
 ### Le versioning
 
-- Absence volontaire de package manager natif
-
 - `go get` clone le dernier commit des repo GitHub, Bitbucket, Google code
 
-- "There is no need for a central archive of every version of every Go library ever released. Dependencies may move or disappear in the world outside your project. Versioning is a source of significant complexity, especially in large code bases" (Golang FAQ)
+- Absence volontaire de package manager natif
 
 - Package managers développés par la communauté : gopack, godep, GoManager, dondur, 
 
