@@ -188,7 +188,7 @@ Les deux POCs ont été développés en parallèle en 10 jours environ
 ### Go est un langage :
 
 - Créé par Google en 2007, v1.0 en mars 2012
-	- R.Pike, K.Thompson, J. Griesemer
+	- R.Pike, K.Thompson, R. Griesemer
 
 - Procédural, un peu objet, un peu fonctionnel
  
