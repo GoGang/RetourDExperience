@@ -487,8 +487,6 @@ commit = "23d36c08ab90f4957ae8e7d781907c368f5454dd"
 
 - Utilisation du package [pprof](http://golang.org/pkg/net/http/pprof/)
 
-- Aucune instrumentation de code nécessaire
-
 - Génération de heap dump et de cpu profiling
 
 - Le package se bind sur un serveur HTTP
@@ -522,7 +520,7 @@ func TestFunctionTralala(t *testing.T) {
 }
 ```
 
-Simplissime mais efficace
+####Simplissime mais efficace
 ---
 /Bonnes surprises/Accès concurrents (M)
 
@@ -530,9 +528,9 @@ Simplissime mais efficace
 
 - Possibilité de lancer les tests unitaires avec l'option `-race`. 
 
-Go est alors capable de détecter les accès concurrents à la mémoire.
+Détection des accès concurrents à la mémoire.
 
-- Il est également possible d'appliquer cette option à la compilation pour détecter les accès concurrents au runtime. 
+- Egalement possible d'appliquer cette option à la compilation pour détecter les accès concurrents au runtime. 
 
 Ceci peut être utile si la couverture de test est faible, mais attention aux performances !
 
@@ -541,7 +539,7 @@ Ceci peut être utile si la couverture de test est faible, mais attention aux pe
 
 ### Stabilité de l'application
 
-Au cours de nos développements et de nos tests de charge, nous n'avons jamais vu planter notre logiciel.
+Au cours de nos développements et de nos tests de charge, nous n'avons jamais vu l'application s'arrêter.
 
 - Pas de SegFault ni de core dump
 
@@ -590,9 +588,10 @@ Google a joué pleinement le jeu de l'Open Source :
 
 - Mocks plus performants qu'implémentations réelles
 
-Les résultats sont les suivants :
+#### Résultats
 
 - 254 req./s pour la version en GO
+
 - 139 req./s pour la version en Java
 
 ---
@@ -604,11 +603,12 @@ Limitations dues :
 
 - Au réseau
 
-- Aux performances des autres applications
+- Aux performances des applications connexes
 
-Les résultats sont les suivants :
+#### Résultats
 
 - 30 req./s pour la version en GO
+
 - 30 req./s pour la version en Java (avec perte de paquets)
 
 ---
@@ -618,7 +618,7 @@ Les résultats sont les suivants :
 
 - Environnement de préproduction
 
-- A charge égale
+- A charge égale de 30 req./s
 
 - Java : 94% CPU, 8.5% RAM
 
@@ -629,7 +629,7 @@ Les résultats sont les suivants :
 
 Expérience concluante
 
-Projet en préproduction
+Projet en production
 
 Un langage syntaxiquement et conceptuellement simple 
 
@@ -639,5 +639,5 @@ Outillage très simple à utiliser
 
 Outils de profiling
 
-Un vrai plaisir... ;)
+Un vrai concurrent à Java...
 
