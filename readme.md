@@ -623,6 +623,8 @@ Limitations dues :
 
 - Go :   2% CPU,  1.2% RAM
 
+![Gopher](img/gopher.png)
+
 ---
 # Conclusion
 
