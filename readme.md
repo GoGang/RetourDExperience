@@ -223,6 +223,7 @@ func main() {
 - Primitives du langage
 - File FIFO
 - Très largement utilisée pour gérer la concurrence et les attentes de thread
+- "select" permet de poller plusieurs channels
 
 ---
 
@@ -240,8 +241,6 @@ func main() {
 - Task switching peu significatif
 
 - Multiplexé sur un ou plusieurs threads de l'OS
-
-- "select" permet de poller plusieurs channels
 
 ---
 
