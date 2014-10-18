@@ -5,7 +5,7 @@
 ---
 # This is where it all began
 ---
-/Qui sommes nous ?/Orange (B)
+/Qui sommes nous ?/Orange
 
 ![Groupe Orange](img/groupe-orange.jpg)
 
@@ -21,7 +21,7 @@ Orange est le 3ème opérateur mobile et 1er fournisseur d’accès Internet ADS
 - 380 000 clients ont signé pour la Fibre (644 000 foyers connectables)
 
 ---
-/Qui sommes nous ?/OAB (B)
+/Qui sommes nous ?/OAB
 
 ### Orange Applications for Business
 
@@ -33,7 +33,7 @@ Machine to Machine, Internet des objets, big data... Orange Business Services ra
 - Chiffre d’affaires de 300 millions d’euros en 2013 (sur un CA global de 6,5 milliards d’euros réalisé l’an passé par OBS)
 
 ---
-/Qui sommes nous ?/L'équipe (B)
+/Qui sommes nous ?/L'équipe
 
 L'équipe des développeurs ayant participé au projet est constituée de :
 
@@ -47,7 +47,7 @@ L'équipe des développeurs ayant participé au projet est constituée de :
 `sebastien.font@orange.com`
 
 ---
-/Qui sommes nous ?/La plate-forme XMS (B)
+/Qui sommes nous ?/La plate-forme XMS
 
 ### Plate-forme d'envoi et réception SMS/MMS 
 #### Entre des éditeurs de services et des usagers mobile
@@ -61,7 +61,7 @@ L'équipe des développeurs ayant participé au projet est constituée de :
 - 900 millions de sms/an
 
 ---
-/Qui sommes nous ?/Le projet SGS-enabler (B)
+/Qui sommes nous ?/Le projet SGS-enabler
 
 ### Le frontal d'accès à la plateforme XMS
 
@@ -77,7 +77,7 @@ L'équipe des développeurs ayant participé au projet est constituée de :
 
 
 ---
-/Qui sommes nous ?/Soucis de maintenance (B)
+/Qui sommes nous ?/Soucis de maintenance
 
 ### Maintenance très complexe et coûteuse
 
@@ -95,7 +95,7 @@ L'équipe des développeurs ayant participé au projet est constituée de :
 
 ---
 
-/Qui sommes nous ?/Conclusion (B)
+/Qui sommes nous ?/Conclusion
 
 ### Conclusion
 
@@ -108,7 +108,7 @@ Malgré des mois passés à débugger l'application, elle n'a jamais été suffi
 [Le choix de la technologie]
 
 ---
-/Etude technique/Périmètre (M)
+/Etude technique/Périmètre
 
 ### Le périmètre de l'étude technique
 
@@ -123,7 +123,7 @@ Malgré des mois passés à débugger l'application, elle n'a jamais été suffi
   - Appel d'un serveur par TCP
 
 ---
-/Etude technique/Critères de choix (M)
+/Etude technique/Critères de choix
 
 ### Critères de choix de la technologie
 
@@ -136,7 +136,7 @@ Malgré des mois passés à débugger l'application, elle n'a jamais été suffi
 - Consommation ressources CPU/mémoire
 
 ---
-/Etude technique/Les alternatives (M)
+/Etude technique/Les alternatives
 
 ### Alternatives techniques
 
@@ -150,7 +150,7 @@ Les cibles envisagées ont été les suivantes :
 Les deux POCs ont été développés en parallèle en 10 jours environ
 
 ---
-/Etude technique/Résultats (M)
+/Etude technique/Résultats
 
 ### Les résultats des POCS
 
@@ -167,14 +167,14 @@ Les deux POCs ont été développés en parallèle en 10 jours environ
 - Temps moyen de traitement d'une requête
 
 ---
-/Etude technique/Nombre de requêtes par seconde (M)
+/Etude technique/Nombre de requêtes par seconde
 
 ### Nombre de requêtes par seconde
 
 ![Nombre de requêtes par seconde](img/nombre-requetes.png)
 
 ---
-/Etude technique/Temps moyen par requête (M)
+/Etude technique/Temps moyen par requête
 
 ### Temps moyen par requête
 
@@ -183,7 +183,7 @@ Les deux POCs ont été développés en parallèle en 10 jours environ
 ---
 # Le langage Go
 ---
-/Le Go/Présentation Générale (JA)
+/Le Go/Présentation Générale
 
 ### Go est un langage :
 
@@ -203,7 +203,7 @@ Les deux POCs ont été développés en parallèle en 10 jours environ
 - Open source
 
 ---
-/Le Go/Channels (JA)
+/Le Go/Channels
 
 ### Les channels
 
@@ -227,7 +227,7 @@ func main() {
 
 ---
 
-/Le Go/Goroutines (JA)
+/Le Go/Goroutines
 
 ### Les Goroutines
 - Exécution d'un appel de fonction en concurrence
@@ -244,7 +244,7 @@ func main() {
 
 ---
 
-/Le Go/Exemple (JA)
+/Le Go/Exemple
 
 ### Exemple
 
@@ -278,7 +278,7 @@ func consumer(c chan int) {
 ```
 ---
 
-/Le Go/Exemple (JA)
+/Le Go/Exemple
 
 ### Exemple
 
@@ -299,7 +299,7 @@ http://play.golang.org/p/kB04dmtTcE
 
 ---
 
-/Le Go/Commandes Go (JA)
+/Le Go/Commandes Go
 
 ### Les commandes Go
 
@@ -319,7 +319,7 @@ http://play.golang.org/p/kB04dmtTcE
 
 ---
 
-/Le Go/Exécutables (JA)
+/Le Go/Exécutables
 
 ### Les exécutables
 
@@ -335,7 +335,7 @@ http://play.golang.org/p/kB04dmtTcE
 
 ---
 
-/Le Go/Environnements (JA)
+/Le Go/Environnements
 
 ### L'environnement de développement
 
@@ -359,7 +359,7 @@ http://play.golang.org/p/kB04dmtTcE
 
 ---
 
-/Les écueils/Gestion des Erreurs (M)
+/Les écueils/Gestion des Erreurs
 
 ### La gestion des erreurs est rébarbative
 
@@ -385,7 +385,7 @@ Il est possible de lancer des *paniques* :
 - Ce ne sont cependant pas des exceptions
 
 ---
-/Les écueils/APIs simplistes (M)
+/Les écueils/APIs simplistes
 
 ### APIs simplistes
 
@@ -400,7 +400,7 @@ L'API de logs est assez critiquée car elle :
 L'API de parsing des options en ligne de commande ne respecte par les standards Unix.
 
 ---
-/Les écueils/Certificats (M)
+/Les écueils/Certificats
 
 ### Certificats
 
@@ -413,7 +413,7 @@ Nous avons rencontré des difficultés pour la gestion des certificats :
 Si tous ces choix sont probablement pertinents, ils peuvent poser des problèmes avec l'existant
 
 ---
-/Les écueils/Gestion des encodages (M)
+/Les écueils/Gestion des encodages
 
 ### Gestion des encodages
 
@@ -422,7 +422,7 @@ Seul l'*UTF-8* et l'*UTF-16* sont supportés.
 Ce choix est évident, mais peut rendre difficile la gestion de l'existant.
 
 ---
-/Les écueils/Versioning (B)
+/Les écueils/Versioning
 
 ### Le versioning
 
@@ -448,7 +448,7 @@ commit = "23d36c08ab90f4957ae8e7d781907c368f5454dd"
 #Les Bonnes Surprises
 
 ---
-/Bonnes surprises/Montée en compétence (JA)
+/Bonnes surprises/Montée en compétence
 
 ### Montée en compétence rapide
 
@@ -466,7 +466,7 @@ commit = "23d36c08ab90f4957ae8e7d781907c368f5454dd"
 
 ---
 
-/Bonnes surprises/Qualité des APIs (JA)
+/Bonnes surprises/Qualité des APIs
 
 ### Qualité des API
 
@@ -480,7 +480,7 @@ commit = "23d36c08ab90f4957ae8e7d781907c368f5454dd"
 - Styles de développement hétérogènes
 
 ---
-/Bonnes surprises/Monitoring (B)
+/Bonnes surprises/Monitoring
 
 ### Monitoring
 
@@ -495,7 +495,7 @@ commit = "23d36c08ab90f4957ae8e7d781907c368f5454dd"
 ![pprof](img/pprof.png)
 
 ---
-/Bonnes surprises/API de tests (B)
+/Bonnes surprises/API de tests
 
 ###  L'API de tests
 
@@ -521,7 +521,7 @@ func TestFunctionTralala(t *testing.T) {
 
 ####Simplissime mais efficace
 ---
-/Bonnes surprises/Accès concurrents (M)
+/Bonnes surprises/Accès concurrents
 
 ### Accès concurrents
 
@@ -534,7 +534,7 @@ Détection des accès concurrents à la mémoire.
 Ceci peut être utile si la couverture de test est faible, mais attention aux performances !
 
 ---
-/Bonnes surprises/Stabilité de l'application (M)
+/Bonnes surprises/Stabilité de l'application
 
 ### Stabilité de l'application
 
@@ -548,7 +548,7 @@ Au cours de nos développements et de nos tests de charge, nous n'avons jamais v
 
 ---
 
-/Bonnes surprises/Support et communauté (JA)
+/Bonnes surprises/Support et communauté
 
 ### Support et communauté
 
@@ -562,7 +562,7 @@ Au cours de nos développements et de nos tests de charge, nous n'avons jamais v
 
 ---
 
-/Bonnes surprises/Open source (JA)
+/Bonnes surprises/Open source
 
 ### Open source
 
@@ -579,7 +579,7 @@ Google a joué pleinement le jeu de l'Open Source :
 ---
 # Retour sur les performances
 ---
-/Performances/Poste de Développement (M)
+/Performances/Poste de Développement
 
 ### Poste de Développement
 
@@ -594,7 +594,7 @@ Google a joué pleinement le jeu de l'Open Source :
 - 139 req./s pour la version en Java
 
 ---
-/Performances/Préproduction (M)
+/Performances/Préproduction
 
 ### Préproduction
 
@@ -611,7 +611,7 @@ Limitations dues :
 - 30 req./s pour la version en Java (avec perte de paquets)
 
 ---
-/Performances/RAM & CPU (M)
+/Performances/RAM & CPU
 
 ### RAM et CPU
 
